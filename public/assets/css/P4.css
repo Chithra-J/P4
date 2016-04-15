@@ -1,0 +1,59 @@
+body.main {
+	background-color: #F9EDB9;
+}
+div.login {
+	font-size: medium;
+	font-family: "Curlz MT";
+	text-align: center;
+}
+strong.right {
+	float: right;
+	font-size: small;
+	font-family: "Curlz MT";
+}
+.topnav, .nav>li>a, div>strong>a {
+	background-color: #FCC302;
+    color: #5F5C3B;
+}
+.nav-justified>li>a {
+	font-family: "Curlz MT";
+	font-size: medium;
+	font-weight:bolder;
+}
+
+.logo {
+	height: 54px;
+	text-align: center;
+}
+.clap {
+	font-size: 50px;
+	text-align: center;
+	vertical-align: middle;
+	font-family: "Curlz MT";
+	font-weight:bolder;
+}
+/* body*/
+.hr-style {
+	color: #FCC302;
+    border-top: 1px solid #FCC302;
+}
+.hr-main-style {
+	color: #5F5C3B;
+	border-top: 1px groove #5F5C3B;
+
+	margin-bottom: 0px;
+}
+/* footer */
+.footer-label-right {
+	color: #5F5C3B;
+	font-family: "Curlz MT";
+	font-size: medium;	
+	text-align: right;
+	font-weight:bolder;
+	float: left;
+}
+.nav-custom-footer {
+	height: 20px;
+	vertical-align: middle;
+	float: right;
+}
