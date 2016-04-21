@@ -16,31 +16,22 @@
 	<body class="main">
 		<div class="container-fluid">
 			<header class="row">
-				<div class="navbar">
-					<div class="container topnav">
+				<div class="col-sm-2"></div>
+					<div class="col-sm-8 container main-title">
+						
 						<div class="login">							
-							<strong><a class="clap" href="/" title="Clap Events : Capturing awesome moments of kids"><img class="logo" src="/assets/images/logo1.png"/>&nbsp;&nbsp;&nbsp;
-							<img class="logo" src="/assets/images/logo.png"/>&nbsp;&nbsp;&nbsp;Clap Events&nbsp;&nbsp;&nbsp;
-							<img class="logo" src="/assets/images/logo1.png"/>&nbsp;&nbsp;&nbsp;
-								<img class="logo" src="/assets/images/logo.png"/></a></strong>
-							<strong class="right">Are you a member? <a href="/login">Register / Login</a> </strong>
+							<strong><a class="clap" href="/" title="Clap Events : Capturing awesome moments of kids">
+							<img class="logo" src="/assets/images/logo1.png"/>
+							<img class="logo" src="/assets/images/logo.png"/>&nbsp;&nbsp;Clap Events&nbsp;&nbsp;
+							<img class="logo" src="/assets/images/logo1.png"/>
+							<img class="logo" src="/assets/images/logo.png"/></a></strong>							
 						</div>
-						<hr class="hr-main-style">
-						<ul class="nav nav-justified nav-custom" >
-							<li>
-								<a href="/">Home</a>
-							</li>
-							<li>
-								<a href="/parents/create">Profile</a>
-							</li>
-							<li>
-								<a href="/events/create">Events</a>
-							</li>
-							<li>
-								<a href="/children/create">Children</a>
-							</li>
-						</ul>
-					</div>
+						
+				@yield('header')
+				</div>
+				<div class="col-sm-2">
+					<strong class="login-right">Are you a member? </strong><br>
+					<a class="login-right" href="/parents/login">Register / Login</a> 
 				</div>
 			</header>
 			<section>

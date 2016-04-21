@@ -18,5 +18,7 @@ Route::get('/', function () {
 
 
 Route::get('/', 'WelcomeController@index');
+Route::get('/parents/login', 'ParentsController@getLogin');
 Route::get('/parents/create', 'ParentsController@getCreate');
 Route::post('/parents/create', 'ParentsController@postCreate');
+Route::post('/parents/existing', 'ParentsController@getExisting');

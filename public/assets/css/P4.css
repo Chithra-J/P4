@@ -2,58 +2,148 @@ body.main {
 	background-color: #F9EDB9;
 }
 div.login {
-	font-size: medium;
-	font-family: "Curlz MT";
 	text-align: center;
+	font-family: "Curlz MT";
 }
-strong.right {
+/*
+.container {
+    font-family: "Curlz MT" !important;
+   }*/
+
+.home-page {
+    margin: 100px -15px 0px -15px !important;
+    font-size: xx-large !important;
+    font-family: "Curlz MT" !important;
+    font-weight: bolder !important;
+}
+.nav-padding {
+	margin-top: 120px;	
+}
+/*main login msg*/
+strong.login-right {
 	float: right;
-	font-size: small;
+	font-size: large;
 	font-family: "Curlz MT";
 }
-.topnav, .nav>li>a, div>strong>a {
+.main-title,.nav > li > a, div > strong > a {
 	background-color: #FCC302;
-    color: #5F5C3B;
+	color: #5F5C3B;
 }
-.nav-justified>li>a {
+.nav-justified > li > a {
 	font-family: "Curlz MT";
-	font-size: medium;
-	font-weight:bolder;
+	font-size: large;
+	font-weight: bolder;
 }
 
-.logo {
-	height: 54px;
+div.login > strong > a.clap > img.logo {
 	text-align: center;
+	vertical-align: middle;	
+	max-height: 50px;
+	font-size: medium;
+	
 }
-.clap {
-	font-size: 50px;
-	text-align: center;
-	vertical-align: middle;
-	font-family: "Curlz MT";
-	font-weight:bolder;
+div.login > strong > a.clap {
+	text-decoration: none;
+	font-size: 90px;
+}
+/* menu */
+/* bootstrap 3 helpers */
+
+
+#nav.affix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index:10;
+}
+
+#sidebar.affix-top {
+    position: static;
+}
+
+#sidebar.affix {
+    position: fixed;
+    top: 100px;
+    width: 160px;
 }
 /* body*/
 .hr-style {
 	color: #FCC302;
-    border-top: 1px solid #FCC302;
+	border-top: 1px solid #FCC302;
 }
 .hr-main-style {
 	color: #5F5C3B;
 	border-top: 1px groove #5F5C3B;
-
 	margin-bottom: 0px;
+}
+.error {
+	color: red;
+	font-size: 14px;
+	font-weight: bold;
+}
+.all_error {
+	color: red;
+	font-size: 14px;
+	font-weight: bold;
+	float: left;
+}
+.table-user-information > tbody > tr {
+    border-top: 1px solid #5F5C3B;
+}
+
+.panel-info>.panel-heading {
+    color: #5F5C3B !important;
+    background-color: #C5B88B !important;
+    border-color: #5F5C3B !important;
+    font-weight: bolder;
+}
+.panel-body {
+    color: #5F5C3B !important;
+    background: #E8F3D1 !important;
+}
+.panel {
+    border-color: #5F5C3B !important;
+    background-color: #C5B88B !important;
+}
+.table-user-information > tbody > tr:first-child {
+    border-top: 0;
+}
+.table-user-information > tbody > tr > td
+ {
+    border-top: 0;    
+}
+.table-user-information > tbody > tr > td.less {
+	width: 20%;
+	font-weight: bolder;
+}
+h3.center {
+	text-align: center !important;
 }
 /* footer */
 .footer-label-right {
 	color: #5F5C3B;
 	font-family: "Curlz MT";
-	font-size: medium;	
+	font-size: medium;
 	text-align: right;
-	font-weight:bolder;
+	font-weight: bolder;
 	float: left;
 }
 .nav-custom-footer {
 	height: 20px;
 	vertical-align: middle;
 	float: right;
+}
+
+/*----------------------------------------------------
+Flash message
+-----------------------------------------------------*/
+.flash_message {
+    width:100%;
+    text-align:center;
+    padding:5px;
+    position:fixed;
+    top:0;
+    left:0;
+    background-color:yellow;
+    font-weight:bold;
 }
