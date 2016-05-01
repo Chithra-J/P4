@@ -1,32 +1,65 @@
+header.row {
+	border: 1px groove #5F5C3B;
+	background-color: #DAFADC;
+	border-radius: 5px
+}
 body.main {
-	background-color: #F9EDB9;
+	background-color: #ADF0C1;
+	background: url('../images/n3_bg.png');
+	/*
+	 background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><text x="5%" y="5%" font-size="30" fill="black">Clap!</text></svg>') repeat;
+
+	 -webkit-background-size: cover;
+	 -moz-background-size: cover;
+	 -o-background-size: cover;
+	 background-size: cover;
+	 filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/p4.png', sizingMethod='scale');
+	 -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/p4.png', sizingMethod='scale')";
+
+	 width: 100%;
+	 height: 100%;
+	 background-repeat: no-repeat;
+	 background-size:contain ;*/
+
 }
 div.login {
 	text-align: center;
 	font-family: "Curlz MT";
 }
+.form-control {
+	font-size: medium !important;
+}
 /*
-.container {
-    font-family: "Curlz MT" !important;
-   }*/
+ .container {
+ font-family: "Curlz MT" !important;
+ }*/
 
 .home-page {
-    margin: 100px -15px 0px -15px !important;
-    font-size: xx-large !important;
-    font-family: "Curlz MT" !important;
-    font-weight: bolder !important;
+	margin: 100px 0px 0px 60px !important;
+	font-size: x-large !important;
+	font-family: "Curlz MT" !important;
+	font-weight: bolder !important;
+}
+.register {
+	margin: 10px -15px 0px -15px !important;
+	font-size: medium !important;
+	font-weight: bolder !important;
+	
 }
 .nav-padding {
-	margin-top: 120px;	
+	margin-top: 120px;
 }
 /*main login msg*/
-strong.login-right {
-	float: right;
+strong.login-right, a.login-right {
+	/*float: right;*/
 	font-size: large;
 	font-family: "Curlz MT";
+	color: #5F5C3B;
+	font-weight: bolder;
+	text-decoration: none;
 }
-.main-title,.nav > li > a, div > strong > a {
-	background-color: #FCC302;
+.main-title, ul.nav > li > a, div > strong > a {
+	background-color: #DAFADC;
 	color: #5F5C3B;
 }
 .nav-justified > li > a {
@@ -37,39 +70,54 @@ strong.login-right {
 
 div.login > strong > a.clap > img.logo {
 	text-align: center;
-	vertical-align: middle;	
+	vertical-align: middle;
 	max-height: 50px;
 	font-size: medium;
-	
+	border-radius: 3px;
+	border: 1px groove #5F5C3B;
 }
 div.login > strong > a.clap {
 	text-decoration: none;
 	font-size: 90px;
+	background-color: #DAFADC;
+}
+/* profile picture */
+prof-pic {
+	align="center";
 }
 /* menu */
-/* bootstrap 3 helpers */
-
 
 #nav.affix {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index:10;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 10;
 }
 
 #sidebar.affix-top {
-    position: static;
+	position: static;
+	color: #5F5C3B;
+	border-radius: 3px;
 }
 
 #sidebar.affix {
-    position: fixed;
-    top: 100px;
-    width: 160px;
+	position: fixed;
+	top: 100px;
+	width: 160px;
+}
+ul.nav > li > a:hover, ul.nav > li > a:focus, ul.nav > li > a:active {
+	background-color: #E7D05D !important;
+}
+ul.nav.nav-pills.nav-stacked.affix-top > li > a {
+	background-color: #DAFADC;
+}
+ul.nav.nav-pills.nav-stacked.affix-top > li > a:active {
+	background-color: #5F5C3B;
 }
 /* body*/
 .hr-style {
-	color: #FCC302;
-	border-top: 1px solid #FCC302;
+	color: #EABC68;
+	border-top: 1px solid #EABC68;
 }
 .hr-main-style {
 	color: #5F5C3B;
@@ -88,29 +136,28 @@ div.login > strong > a.clap {
 	float: left;
 }
 .table-user-information > tbody > tr {
-    border-top: 1px solid #5F5C3B;
+	border-top: 1px solid #5F5C3B;
 }
 
-.panel-info>.panel-heading {
-    color: #5F5C3B !important;
-    background-color: #C5B88B !important;
-    border-color: #5F5C3B !important;
-    font-weight: bolder;
+.panel-info > .panel-heading {
+	color: #5F5C3B !important;
+	background-color: #AFCBB7 !important;
+	border-color: #5F5C3B !important;
+	font-weight: bolder !important;
 }
 .panel-body {
-    color: #5F5C3B !important;
-    background: #E8F3D1 !important;
+	color: #5F5C3B !important;
+	background: #DAFADC !important;
 }
 .panel {
-    border-color: #5F5C3B !important;
-    background-color: #C5B88B !important;
+	border-color: #5F5C3B !important;
+	background-color: #AFCBB7 !important;
 }
 .table-user-information > tbody > tr:first-child {
-    border-top: 0;
+	border-top: 0;
 }
-.table-user-information > tbody > tr > td
- {
-    border-top: 0;    
+.table-user-information > tbody > tr > td {
+	border-top: 0;
 }
 .table-user-information > tbody > tr > td.less {
 	width: 20%;
@@ -118,6 +165,58 @@ div.login > strong > a.clap {
 }
 h3.center {
 	text-align: center !important;
+}
+/* profile picture upload*/
+
+/*
+ .kv-upload-progress .progress {
+ height: 20px !important;
+ }*/
+.input-group {
+	position: relative;
+	display: table;
+	border-collapse: separate
+}
+.input-group {
+	margin-top: 30px;
+	display: block !important;
+}
+/*
+.file-caption-name {
+    display: none !important;
+   }
+
+.hide {
+	display: none !important;
+}
+.hide {
+	display: block !important;
+}*/
+.calendar-control {
+	    margin-top: 25px !important;
+}
+.input-group-addon, .input-group-btn, .input-group .form-control {
+	display: block !important;
+}
+.progress {
+	overflow: hidden;
+	height: 21px;
+	margin-bottom: 21px;
+	background-color: #ecf0f1;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+	box-shadow: inset 0 1px 2px rgba(0,0,0,0.1)
+}
+
+.progress {
+	height: 20px !important;
+	margin-bottom: 0px !important;
+}
+
+.fixed-panel {
+	min-height: 500px;
+	max-height: 500px;
+	overflow-y: auto;
 }
 /* footer */
 .footer-label-right {
@@ -130,20 +229,30 @@ h3.center {
 }
 .nav-custom-footer {
 	height: 20px;
-	vertical-align: middle;
+	vertical-align: middle !important;
 	float: right;
 }
 
+footer > div.nav-footer {
+	background-color: #DAFADC;
+	border-color: #5F5C3B;
+	min-height: 35px;
+}
+
+.navbar-nav {
+	margin: 9.75px -15px !important;
+}
+
 /*----------------------------------------------------
-Flash message
------------------------------------------------------*/
+ Flash message
+ -----------------------------------------------------*/
 .flash_message {
-    width:100%;
-    text-align:center;
-    padding:5px;
-    position:fixed;
-    top:0;
-    left:0;
-    background-color:yellow;
-    font-weight:bold;
+	width: 100%;
+	text-align: center;
+	padding: 5px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: yellow;
+	font-weight: bold;
 }

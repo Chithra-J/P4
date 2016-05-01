@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'middle', 'firstname', 'lastname', 'gender'
     ];
 
     /**
@@ -23,4 +23,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+	
+	public function children() {
+        # Parent may have many children
+        # Define a one-to-many relationship.
+        return $this->hasMany('\P4\Children');
+    }
 }

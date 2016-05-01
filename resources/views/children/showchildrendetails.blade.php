@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-	Edit profile {{ $parent->firstname }}
+Generate Random Users
 @stop
 
 @section('header')
@@ -41,18 +41,38 @@
 @section('content')
 <section>
 	<div class="container">
-		<!--<div class="row">-->
+		<br>
+		<div class="row">
+			<div class="col-sm-2">
+				<ul id="sidebar" class="nav nav-pills nav-stacked">
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a href="/parents/create">Profile</a>
+					</li>
+					<li>
+						<a href="/children">Children</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a href="/events">Events</a>
+					</li>
+					<li>
+						<a href="/reports">Reports</a>
+					</li>
+				</ul>
+			</div>
 			<div class="col-sm-10">
 				<div class="panel">
 					<div class="panel-heading">
 						<h3 class="panel-title">Your Profile</h3>
-					</div>					
+					</div>
+					
 					<div class="panel-body">
 						<div class="row">
-							<div class="col-md-3 col-lg-3 prof-pic">
-								@if ( (!empty($parent -> picture_location)) and ($parent -> picture_location != "") and ($parent -> picture_location != NULL) and (!empty($parent -> picture_location)))
-									<img alt="User Picture" src={{ URL::to('/') }}{{ $parent->picture_location }} class="img-circle img-responsive">
-								@endif
+							<div class="col-md-3 col-lg-3 " align="center">
+								<img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive">
 							</div>
 							<div class=" col-md-9 col-lg-9 ">
 								<table class="table table-user-information">
@@ -71,15 +91,7 @@
 										</tr>
 										<tr>
 											<td class="less">Username:</td>
-											<td>{{ $parent->name }}</td>
-										</tr>
-										<tr>
-											<td class="less">Middle:</td>
-											<td>{{ $parent->middle }}</td>
-										</tr>
-										<tr>
-											<td class="less">Gender:</td>
-											<td>{{ $parent->gender }}</td>
+											<td>{{ $parent->username }}</td>
 										</tr>
 									</tbody>
 								</table>
@@ -87,7 +99,9 @@
 						</div>
 					</div>
 				</div>
-			<!--</div>-->
+
+
+			</div>
 		</div>
 	</div>
 </section>
@@ -100,7 +114,7 @@
 	});
 	$('#sidebar').affix({
 		offset : {
-			top : 100
+			top : 150
 		}
 	});
 	/*
