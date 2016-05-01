@@ -25,7 +25,7 @@ class ParentsController extends Controller {
 		
 		//$parent = \P4\User::where('email', '=', $request -> email) -> get() -> first();
 		//dump($parent);
-		print_r($request);
+		//print_r($request);
 
 		$parent -> firstname = $request -> firstname;
 		$parent -> lastname = $request -> lastname;

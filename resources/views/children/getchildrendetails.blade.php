@@ -70,9 +70,9 @@ Clap Events
 							<div class="form-group">
 								<label class="col-md-3 control-label calendar-control">Date of birth:</label>
 								<div class='col-lg-5'>
-									<div class='input-group date col-lg-5' id='datetimepicker'>										
-					                    <input type='text' class="form-control">
-					                    <span class="input-group-addon">&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-calendar"></span>
+									<div class='new-calendar input-group date col-lg-5' id='datetimepicker'>										
+					                    <input type='text' class="new-calendar form-control">
+					                    <span class="new-calendar input-group-addon">&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-calendar"></span>
 					                    </span>
 					                </div>
 								

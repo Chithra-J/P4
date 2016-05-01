@@ -14,7 +14,7 @@ Clap Events
 				<!-- edit form column -->
 				<div class="col-md-offset-1 col-md-5 personal-info">
 
-					<div class="panel">
+					<div class="fixed-panel panel">
 						<div class="panel-heading">
 							<h3 class="panel-title">Add or Edit Profile Picture</h3>
 						</div>

@@ -195,9 +195,12 @@ h3.center {
 .calendar-control {
 	    margin-top: 25px !important;
 }
-.input-group-addon, .input-group-btn, .input-group .form-control {
+.new-calendar .input-group-addon, .new-calendar .input-group-btn
+,.new-calendar .input-group .form-control 
+{
 	display: block !important;
 }
+
 .progress {
 	overflow: hidden;
 	height: 21px;
@@ -214,8 +217,11 @@ h3.center {
 }
 
 .fixed-panel {
+	/*
 	min-height: 500px;
-	max-height: 500px;
+		max-height: 500px;*/
+	
+	min-width: 500px;
 	overflow-y: auto;
 }
 /* footer */
