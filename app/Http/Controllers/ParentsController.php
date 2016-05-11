@@ -52,13 +52,13 @@ class ParentsController extends Controller {
 
 		for ($i = 0; $i < count($filenames); $i++) {
 			$ext = explode('.', basename($filenames[$i]));
-			$parent_picture_folder = public_path()."\\assets\\uploads\\" . $user_id;
+			$parent_picture_folder = public_path()."/assets/uploads/" . $user_id;
 			$extension = array_pop($ext);
-			$target = public_path()."\\assets\\uploads\\" . $user_id . "\\" . $user_id . "." . $extension;
+			$target = public_path()."/assets/uploads/" . $user_id . "/" . $user_id . "." . $extension;
 			if (!is_dir($parent_picture_folder)) {
 				File::makeDirectory($parent_picture_folder, 0775, true);
 			} else {
-				foreach (glob($parent_picture_folder."\\*.*") as $filename) {
+				foreach (glob($parent_picture_folder."/*.*") as $filename) {
 					if (is_file($filename)) {
 						unlink($filename);
 					}
@@ -67,7 +67,7 @@ class ParentsController extends Controller {
 
 			if (move_uploaded_file($images['tmp_name'][$i], $target)) {
 				$success = true;
-				$paths[] = "\\assets\\uploads\\" . $user_id . "\\" . $user_id . "." . $extension;
+				$paths[] = "/assets/uploads/" . $user_id . "/" . $user_id . "." . $extension;
 			} else {
 				$success = false;
 				break;
