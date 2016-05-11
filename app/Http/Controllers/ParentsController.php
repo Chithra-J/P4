@@ -52,9 +52,9 @@ class ParentsController extends Controller {
 
 		for ($i = 0; $i < count($filenames); $i++) {
 			$ext = explode('.', basename($filenames[$i]));
-			$parent_picture_folder = "assets\\uploads\\" . $user_id;
+			$parent_picture_folder = public_path()."\\assets\\uploads\\" . $user_id;
 			$extension = array_pop($ext);
-			$target = "assets\\uploads\\" . $user_id . "\\" . $user_id . "." . $extension;
+			$target = public_path()."\\assets\\uploads\\" . $user_id . "\\" . $user_id . "." . $extension;
 			if (!is_dir($parent_picture_folder)) {
 				File::makeDirectory($parent_picture_folder, 0775, true);
 			} else {

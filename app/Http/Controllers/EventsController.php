@@ -38,7 +38,6 @@ class EventsController extends Controller {
 		$bin_path=base_path().'\vendor\wemersonjanuario\wkhtmltopdf-windows\bin\64bit\wkhtmltopdf.exe';
 		dump($bin_path);
 		$myProjectDirectory = '/path/to/my/project';
-
 		$snappy = new Pdf($bin_path);
         $snappy->generateFromHtml('<p>Some content</p>', 'test.pdf');
 	}
