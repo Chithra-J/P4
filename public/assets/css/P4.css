@@ -1,12 +1,18 @@
+/*
 header.row {
 	border: 1px groove #5F5C3B;
 	background-color: #DAFADC;
-	border-radius: 5px
+	border-radius: 5px;
+}*/
+.CE_logo {
+	border: 2px #E7D05D solid;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 body.main {
-	background-color: #ADF0C1;
-	background: url('../images/n3_bg.png');
-	/*
+	background-color: #00C098;
+	/*background: url('../images/n3_bg.png');
+	
 	 background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><text x="5%" y="5%" font-size="30" fill="black">Clap!</text></svg>') repeat;
 
 	 -webkit-background-size: cover;
@@ -25,6 +31,7 @@ body.main {
 div.login {
 	text-align: center;
 	font-family: "Curlz MT";
+	
 }
 .form-control {
 	font-size: medium !important;
@@ -44,23 +51,41 @@ div.login {
 	margin: 10px -15px 0px -15px !important;
 	font-size: medium !important;
 	font-weight: bolder !important;
-	
 }
 .nav-padding {
 	margin-top: 120px;
 }
 /*main login msg*/
-strong.login-right, a.login-right {
-	/*float: right;*/
+
+.login-right, .login-left {
+	float: right;
 	font-size: large;
+	background-color: #DAFADC;
 	font-family: "Curlz MT";
 	color: #5F5C3B;
 	font-weight: bolder;
 	text-decoration: none;
+	border: 1px #E7D05D solid;
+    border-radius: 4px;
+}
+.login-left {
+	float: left;
+}
+.login-right > span > strong > a, .login-right > a,
+.login-left > span > strong > a, .login-left > a {
+	color: #5F5C3B;
+	text-decoration: none !important;	
 }
 .main-title, ul.nav > li > a, div > strong > a {
-	background-color: #DAFADC;
 	color: #5F5C3B;
+}
+.main-title {
+	/*background: url('../images/new_bg1.png');
+	border: 1px #E7D05D solid;*/
+    border-radius: 4px;
+}
+ul.nav > li > a {
+	background-color: #DAFADC;
 }
 .nav-justified > li > a {
 	font-family: "Curlz MT";
@@ -71,19 +96,37 @@ strong.login-right, a.login-right {
 div.login > strong > a.clap > img.logo {
 	text-align: center;
 	vertical-align: middle;
-	max-height: 50px;
+	max-height: 30px;
 	font-size: medium;
+	/*
 	border-radius: 3px;
-	border: 1px groove #5F5C3B;
+		border: 5px groove #5F5C3B;*/
 }
+
 div.login > strong > a.clap {
 	text-decoration: none;
-	font-size: 90px;
+	font-size: 70px;
 	background-color: #DAFADC;
+	font-weight: bolder;
+    border: 4px #E7D05D solid;
+	/*
+	border-radius: 0 0 12px 12px;
+		border: 1px #E7D05D solid;*/
+	
+}
+/* button hover */
+/*.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary*/
+.btn-primary {
+    color: #ffffff;
+    background-color: #2c3e50;
+    border-color: #2c3e50;
+}
+.btn-primary:hover {
+	background-color: #8AB2DA !important;
 }
 /* profile picture */
-prof-pic {
-	align="center";
+.prof-pic {
+	vertical-align: center;
 }
 /* menu */
 
@@ -103,16 +146,25 @@ prof-pic {
 #sidebar.affix {
 	position: fixed;
 	top: 100px;
-	width: 160px;
+	width: 230px;
 }
-ul.nav > li > a:hover, ul.nav > li > a:focus, ul.nav > li > a:active {
-	background-color: #E7D05D !important;
+
+ul.nav > li > a {
+	background-color: #DAFADC;
 }
+
 ul.nav.nav-pills.nav-stacked.affix-top > li > a {
 	background-color: #DAFADC;
 }
-ul.nav.nav-pills.nav-stacked.affix-top > li > a:active {
-	background-color: #5F5C3B;
+ul.nav > li > a:hover {
+	background-color: #86D0EC !important;
+	border: 1px #2c3e50 solid;
+}
+ul.nav > li > a.active {
+	background-color: #E7D05D;
+}
+ul.nav.nav-pills.nav-stacked.affix-top > li > a.active {
+	background-color: #E7D05D !important;
 }
 /* body*/
 .hr-style {
@@ -167,7 +219,19 @@ h3.center {
 	text-align: center !important;
 }
 /* profile picture upload*/
-
+.profile-info {
+	color: #E93F5F;
+}
+.sized-small {
+	max-height: 200px !important;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.align-with-form {
+	margin-top: 10px;
+	text-align: center;
+}
 /*
  .kv-upload-progress .progress {
  height: 20px !important;
@@ -178,29 +242,101 @@ h3.center {
 	border-collapse: separate
 }
 .input-group {
-	margin-top: 30px;
+	margin-top: 0px;
 	display: block !important;
 }
 /*
-.file-caption-name {
-    display: none !important;
-   }
+ .file-caption-name {
+ display: none !important;
+ }
 
-.hide {
-	display: none !important;
-}
-.hide {
-	display: block !important;
-}*/
+ .hide {
+ display: none !important;
+ }
+ .hide {
+ display: block !important;
+ }*/
+/* Child screen */
 .calendar-control {
-	    margin-top: 25px !important;
+	margin-top: 205x !important;
 }
-.new-calendar .input-group-addon, .new-calendar .input-group-btn
-,.new-calendar .input-group .form-control 
-{
+.new-calendar .input-group-addon, .new-calendar .input-group-btn, .new-calendar .input-group .form-control {
 	display: block !important;
 }
+.center-text {
+	text-align: center;
+}
+table.child-table {
+	border-spacing: .1rem !important;
+	border-color: #5F5C3B !important;
+	background: #5F5C3B;
+	color: #5F5C3B !important;
+	border-collapse: inherit;
+	table-layout:fixed;
+	width: 100%;
+}
 
+table.child-table > thead > tr > td {
+	font-size:medium;
+	font-weight:bold;
+	background: #E7D05D;
+}
+
+table.child-table > tbody > tr > td {
+	background: hsl(170, 70%, 50%);
+}
+
+/*
+table.child-table > thead > tr > td:nth-child(1) {
+	background: hsl(150, 50%, 50%);
+}
+table.child-table > thead > tr > td:nth-child(2) {
+	background-color: hsl(150, 50%, 50%);
+}
+table.child-table > thead > tr > td:nth-child(3) {
+	background: hsl(160, 60%, 50%);
+}
+table.child-table > thead > tr > td:nth-child(4) {
+	background: hsl(170, 70%, 50%);
+}
+table.child-table > thead > tr > td:nth-child(5) {
+	background: hsl(180, 80%, 50%);
+}
+table.child-table > thead > tr > td:nth-child(6) {
+	background: hsl(190, 90%, 50%);
+}
+table.child-table > thead > tr > td:nth-child(7) {
+	background: hsl(200, 99%, 50%);
+}
+table.child-table > thead > tr > td:nth-child(8) {
+	background: hsl(150, 50%, 50%);
+}
+
+
+table.child-table > tbody > tr > td:nth-child(1) {
+	background: hsl(150, 50%, 50%);
+}
+table.child-table > tbody > tr > td:nth-child(2) {
+	background: hsl(160, 60%, 50%);
+}
+table.child-table > tbody > tr > td:nth-child(3) {
+	background: hsl(170, 70%, 50%);
+}
+table.child-table > tbody > tr > td:nth-child(4) {
+	background: hsl(180, 80%, 50%);
+}
+table.child-table > tbody > tr > td:nth-child(5) {
+	background: hsl(190, 90%, 50%);
+}
+table.child-table > tbody > tr > td:nth-child(6) {
+	background: hsl(200, 99%, 50%);
+}
+table.child-table > tbody > tr > td:nth-child(7) {
+	background: hsl(150, 50%, 50%);
+}
+*/
+
+/* Picture profile*/
 .progress {
 	overflow: hidden;
 	height: 21px;
@@ -218,9 +354,9 @@ h3.center {
 
 .fixed-panel {
 	/*
-	min-height: 500px;
-		max-height: 500px;*/
-	
+	 min-height: 500px;
+	 max-height: 500px;*/
+
 	min-width: 500px;
 	overflow-y: auto;
 }

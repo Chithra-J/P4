@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-Generate Random Users
+	Clap Events - Show my profile 
 @stop
 
 @section('header')
@@ -41,38 +41,14 @@ Generate Random Users
 @section('content')
 <section>
 	<div class="container">
-		<br>
-		<div class="row">
-			<div class="col-sm-2">
-				<ul id="sidebar" class="nav nav-pills nav-stacked">
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/parents/create">Profile</a>
-					</li>
-					<li>
-						<a href="/children">Children</a>
-					</li>
-					<li class="divider"></li>
-					<li>
-						<a href="/events">Events</a>
-					</li>
-					<li>
-						<a href="/reports">Reports</a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-sm-10">
+			<div class="col-sm-offset-1 col-sm-9">
 				<div class="panel">
 					<div class="panel-heading">
-						<h3 class="panel-title">Your Profile</h3>
-					</div>
-					
+						<h3 class="panel-title">My Profile</h3>
+					</div>					
 					<div class="panel-body">
-						<div class="row">
-							<div class="col-md-3 col-lg-3 " align="center">
-								<img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive">
+							<div class="col-md-3 col-lg-3 prof-pic">
+									<img alt="User Picture" src={{ URL::to('/') }}{{ $parent->picture_location }} class="img-circle img-responsive sized-small">
 							</div>
 							<div class=" col-md-9 col-lg-9 ">
 								<table class="table table-user-information">
@@ -91,16 +67,20 @@ Generate Random Users
 										</tr>
 										<tr>
 											<td class="less">Username:</td>
-											<td>{{ $parent->username }}</td>
+											<td>{{ $parent->name }}</td>
+										</tr>
+										<tr>
+											<td class="less">Middle:</td>
+											<td>{{ $parent->middle }}</td>
+										</tr>
+										<tr>
+											<td class="less">Gender:</td>
+											<td>{{ $parent->gender }}</td>
 										</tr>
 									</tbody>
 								</table>
 							</div>
 						</div>
-					</div>
-				</div>
-
-
 			</div>
 		</div>
 	</div>
@@ -111,18 +91,13 @@ Generate Random Users
 <script>
 	$(document).ready(function() {
 		$("footer div.navbar.nav-footer").removeClass("navbar-fixed-bottom");
+		$("ul.nav > li >").find(".active").removeClass("active");
+		$('#home').addClass("active");		
 	});
 	$('#sidebar').affix({
 		offset : {
-			top : 150
+			top : 100
 		}
-	});
-	/*
-	 $('#navbar').affix({
-	 offset: {
-	 top: 10
-	 }
-	 });	*/
-
+	});	
 </script>
 @stop

@@ -4,37 +4,9 @@ Come in to Clap!
 @stop
 @section('content')
 <section>
-	<!--
-	<form method='POST' action='/login'>
-
-	{!! csrf_field() !!}
-
-	<div class='form-group'>
-	<label for='email'>Email</label>
-	<input type='text' name='email' id='email' value='{{ old('email') }}'>
-	</div>
-
-	<div class='form-group'>
-	<label for='password'>Password</label>
-	<input type='password' name='password' id='password' value='{{ old('password') }}'>
-	</div>
-
-	<div class='form-group'>
-	<input type='checkbox' name='remember' id='remember'>
-	<label for='remember' class='checkboxLabel'>Remember me</label>
-	</div>
-
-	<button type='submit' class='btn btn-primary'>Login</button>
-
-	</form>-->
-
 	<div class="container">
 		<div class=" col-md-offset-3 col-md-6 col-md-offset-3">
-		<!--
-		<div class="row">
-					<div class="col-md-offset-3 col-md-6 col-md-offset-3">-->
-		
-				<h1>Login</h1>
+				<br><br><br>
 				<div class="panel">
 					<div class="panel-heading">
 						<h3 class="panel-title">Already a member</h3>
@@ -79,14 +51,6 @@ Come in to Clap!
 									</div>
 								</div>
 							</div>
-							<!--
-							<div class="form-group">
-							<div class='input-group date' id='datetimepicker1'>
-							<input type='text' class="form-control" />
-							<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span> </span>
-							</div>
-							</div>-->
-
 							<div class="form-group">
 								<label class="col-md-5 control-label"></label>
 								<div class="col-md-6">
@@ -103,19 +67,13 @@ Come in to Clap!
 						</form>
 					</div>
 				</div>
-			<!--
 			</div>
-					</div>-->
-			
-	</div>
 	</div>
 </section>
 @stop
-
 @section('body')
 <script>
 	$(document).ready(function() {
-		/*$("footer div.navbar.nav-footer").removeClass("navbar-fixed-bottom");*/
 		$('ul.nav.nav-pills.nav-stacked').hide();
 	}); 
 </script>

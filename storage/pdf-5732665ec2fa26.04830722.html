@@ -1,7 +1,8 @@
 <!doctype html>
 <html>
-	<head>
-		<title> @yield('title','Dynamic Web Application Project P4') </title>
+	<head><base href="http://localhost">
+		<title> Clap Events
+ </title>
 		<meta charset='utf-8'>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<link href="/assets/css/P4.css" type='text/css' rel='stylesheet'>
@@ -17,9 +18,7 @@
 		<script src="/assets/js/fileinput.min.js"></script>
 		<link rel="icon" href="/assets/images/favicon.ico">
 
-		{{-- Yield any page specific CSS files or anything else you might want in the head --}}
-		@yield('head')
-		<!--
+						<!--
 		<script>
 					$("div.input-group").addClass("input-group-sm");
 				</script>-->
@@ -29,41 +28,27 @@
 		<div class="container-fluid">
 			<header class="row">
 				<div class="col-sm-2">
-					@if(Auth::user())
-				<div class="login-left">
+									<div class="login-left">
 					<div class="login-left">
-						&nbsp;&nbsp;Welcome {{ Auth::user()->name }} ! &nbsp;&nbsp; 
+						&nbsp;&nbsp;Welcome chits ! &nbsp;&nbsp; 
 					</div>
 				</div>
-				@endif
-				</div>
+								</div>
 				<div class="col-sm-8 container main-title">
 					<div class="login">
 						<strong><a class="clap" href="/" title="Clap Events : Capturing awesome moments of kids"> 
 							&nbsp;&nbsp;<img class="CE_logo" src="/assets/images/final_logo.png" alt="Clap Events!">
 								Clap Events&nbsp;&nbsp; </a></strong>
 					</div>
-					@yield('header')
-				</div>
-				@if(Auth::user())
-				<div class="login-right">
+									</div>
+								<div class="login-right">
 					<div class="login-right">						
 						<a href="/logout">&nbsp;&nbsp;Logout&nbsp;&nbsp;</a>
 					</div>
 				</div>
-				@else
-				<div class="col-sm-2">
-					<div class="login-right">
-						<span><strong>Are you a member? <br>
-						<a href="/login">Login</a>&nbsp;or&nbsp;
-						<a href="/register">Register</a></strong> </span>
-						</div>
-				</div>
-				@endif
-			</header>
+							</header>
 			<section>
-				@if(Auth::user())
-				<!-- left column -->
+								<!-- left column -->
 				<br>
 				<br>
 				<div class="col-sm-2">
@@ -82,9 +67,33 @@
 						</li>
 					</ul>
 				</div>
-				@endif
-				{{-- Main page content will be yielded here --}}
-				@yield('content')
+												<section>
+	<div class="container">
+			<div class="col-sm-10 home-page">
+			<div class="panel">
+				<div class="panel-heading">
+					<h3 class="panel-title">About Clap Events</h3>
+				</div>
+				<div class="panel-body">
+					<p>
+						Clap Events is a helpful website for parents who track thier unique child's acheivments whether it's a basketball
+						tournement or a math competetion "Clap Events" can make that special event memorable.
+					</p>
+					<br>
+					<p>
+						You might say you can just take a picture or write it down in a piece of paper, but that can get easily lost.  Clap Events will remind you when there is something important for you to attend.
+						Clap Events will also track what your child did at the event.
+					</p>
+					<br>
+					<p>
+						All you have to do is sign up with your email and enjoy tracking your kids memorable achievements.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
 			</section>
 			<footer>
 				<div class="navbar nav-footer navbar-fixed-bottom ">
@@ -92,7 +101,7 @@
 						<div class="row" >
 							<div class="col-sm-6">
 								<ul class="nav navbar-nav nav-custom-footer">
-									&copy; {{ date('Y') }} &nbsp;&nbsp;
+									&copy; 2016 &nbsp;&nbsp;
 									<a target="_blank" href='https://github.com/Chithra-J/P4'> View on Github</a>
 								</ul>
 							</div>
@@ -106,6 +115,6 @@
 				</div>
 			</footer>
 		</div>
-		@yield('body')
+		
 	</body>
 </html>

@@ -27,6 +27,12 @@ class User extends Authenticatable
 	public function children() {
         # Parent may have many children
         # Define a one-to-many relationship.
-        return $this->hasMany('\P4\Children');
+        return $this->hasMany('\P4\Child');
+    }
+	
+	public function events() {
+        # Parent may have many children
+        # Define a one-to-many relationship.
+        return $this->hasMany('\P4\Event');
     }
 }

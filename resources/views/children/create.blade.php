@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-Clap Events
+Clap Events Adding Child
 @stop
 @section('header')
 
@@ -10,133 +10,114 @@ Clap Events
 <section>
 	<div class="container">
 		<div class="row">
-			<form id="form1" class="form-horizontal" enctype="multipart/form-data" role="form" method='POST' action='/children/create'>
+			<form id="form1" class="form-horizontal" role="form" method='POST' action='/children/createChild'>
 				<!-- edit form column -->
-				<div class="col-md-offset-1 col-md-8 personal-info">
+				<div class="col-md-offset-1 col-md-9 personal-info">
 					<div class="panel">
 						<div class="panel-heading">
 							<h3 class="panel-title">Add Child Profile</h3>
 						</div>
-
 						<div class="panel-body">
 							<input type='hidden' name='_token' value='{{ csrf_token() }}'>
-							<input type="hidden" id="user_id" name="user_id" value={{ $parent->
-							id }}>
-							<input type="hidden" id="email" name="email" value={{ $parent->
-							email }}>
-							
+							<input type="hidden" id="user_id" name="user_id" value={{ $user_id }}>
 							<!--
 							<div class="form-group">
 								@if ( (!empty($parent -> picture_location)) and ($parent -> picture_location != "") and ($parent -> picture_location != NULL) and (!empty($parent -> picture_location)))
-									<a id="editprofilepicture" class="col-lg-3" href="/parents/addProfilePicture">Edit Profile Picture</a>
-									<div class="col-lg-8">									
+									<a id="editprofilepicture" class="col-lg-4" href="/parents/addProfilePicture">Edit Profile Picture</a>
+									<div class="col-lg-7">									
 										<img alt="User Picture" src={{ URL::to('/') }}{{ $parent->picture_location }} class="img-circle img-responsive">	
 																		
 									</div>
 								@else 
 									<a id="editprofilepicture" class="col-lg-offset-3 col-lg-5" href="/parents/addProfilePicture">Add Profile Picture</a>
 								@endif
-							</div>-->
-							
-							
+							</div>-->							
 							<div class="form-group">
-								<label class="col-lg-3 control-label">* First name:</label>
-								<div class="col-lg-8">
-									<!--<input class="form-control" type="text" name='firstname'  value='{{ old('firstname') }}'>-->
-									<input class="form-control" type="text" name='firstname'  value="">
+								<label class="col-lg-4 control-label">* First name:</label>
+								<div class="col-lg-7">
+									<input class="form-control" type="text" name='firstname'  value="{{ old('firstname') }}">
 									<div class='error'>
 										{{ $errors->first('firstname') }}
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-lg-3 control-label">Last name:</label>
-								<div class="col-lg-8">
-									<!--<input class="form-control" type="text" name='lastname' value='{{ old('lastname') }}'>-->
-									<input class="form-control" type="text" name='lastname' value="">
+								<label class="col-lg-4 control-label">Last name:</label>
+								<div class="col-lg-7">
+									<input class="form-control" type="text" name='lastname' value="{{ old('lastname') }}">
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-lg-3 control-label">Middle:</label>
-								<div class="col-lg-8">
-									<!--<input class="form-control" type="text"  name='email'  value='{{ old('email') }}'>-->
-									<input class="form-control" type="text" name='middle' value="">
-									<div class='error'>
-										{{ $errors->first('middle') }}
-									</div>
+								<label class="col-lg-4 control-label">Middle:</label>
+								<div class="col-lg-7">
+									<input class="form-control" type="text" name='middle' value="{{ old('middle') }}">
 								</div>
 							</div>
 							
 							<div class="form-group">
-								<label class="col-md-3 control-label calendar-control">Date of birth:</label>
-								<div class='col-lg-5'>
+								<label class="col-md-4 control-label ">* Date of birth (YYYY-MM-DD):</label>
+								<!--<label class="col-md-3 control-label ">(MM/DD/YYYY)</label>-->
+								<div class='col-lg-7'>
 									<div class='new-calendar input-group date col-lg-5' id='datetimepicker'>										
-					                    <input type='text' class="new-calendar form-control">
+					                    <input type='text' class="new-calendar form-control" name='date_of_birth' value="">					                    
 					                    <span class="new-calendar input-group-addon">&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-calendar"></span>
 					                    </span>
+					                    <div class='error'>
+										{{ $errors->first('date_of_birth') }}
+									</div>
 					                </div>
-								
 								</div>
-								<div class='col-lg-3'></div>
+								
+								<!--<div class='col-lg-4'></div>-->		
+														
 							</div>
 							<div class="form-group">
-									<label class="col-md-3 control-label">Gender:</label>
-									<div class="col-md-8">
+									<label class="col-md-4 control-label">Gender:</label>
+									<div class="col-md-7">
 										<div class="radio">
-											<label>
-												<input type="radio" name="gender">
-												Female</label>
+											<label><input type="radio" name="gender" value="Female">Female</label>
 										</div>
 										<div class="radio">
-											<label>
-												<input type="radio" name="gender">
-												Male</label>
+											<label><input type="radio" name="gender" value="Male">Male</label>
 										</div>
 									</div>
 								</div>
 							<div class="form-group">
-								<label class="col-md-3 control-label"></label>
-								<div class="col-md-8">
+								<div class="col-md-offset-4 col-md-7">
 									<input type="submit" class="btn btn-primary" value="Submit">
-									<span></span>
-									<input id="reset1" type="reset" class="btn btn-default" value="Reset">
+									<a href='{{ url('/children/create') }}' class="btn btn-default" id="btn-next">Cancel</a>
 								</div>
 							</div>
-							
-
 							@if(count($errors) > 0)
 							<div class='all_error'>
 								Please correct the errors above and try again.
 							</div>
 							@endif
-							<!--</form>-->
 						</div>
 					</div>
 				</div>
 			</form>
 		</div>
-
 </section>
-<hr class="hr-style">
 </div>
 @stop
 @section('body')
 <script>
 	$(window).load(function() {
 		$("div.input-group").addClass("input-group-sm");
-		/*$("div.kv-upload-progress").removeClass("hide");*/
 	});
 
 	$(document).ready(function() {
+		$("ul.nav > li >").find(".active").removeClass("active");
+		$('#editChild').addClass("active");		
 		$('#datetimepicker').datetimepicker({
 			viewMode: 'years',
-                format: 'MM/DD/YYYY'
+			'allowInputToggle' : true,
+                format: 'YYYY-MM-DD'
 	    	});
-		/*$("ul.nav > li >").find(".active").removeClass("active");*/
-		$('#editProfile').addClass("active");
 		$("footer div.navbar.nav-footer").removeClass("navbar-fixed-bottom");
 		});
-	/*$("div.kv-upload-progress").find(".hide").addClass("show");*/
+
 	$('#sidebar').affix({
 		offset : {
 			top : 150

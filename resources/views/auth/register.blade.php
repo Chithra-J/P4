@@ -1,47 +1,15 @@
 @extends('layouts.master')
 @section('title')
-Come in to Clap!
+Clap Events - Come in to Clap!
 @stop
 @section('content')
 <section>
-	<!--
-	<form method='POST' action='/register'>
-	{!! csrf_field() !!}
-
-	<div class='form-group'>
-	<label for='name'>Name</label>
-	<input type='text' name='name' id='name' value='{{ old('name') }}'>
-	</div>
-
-	<div class='form-group'>
-	<label for='email'>Email</label>
-	<input type='text' name='email' id='email' value='{{ old('email') }}'>
-	</div>
-
-	<div class='form-group'>
-	<label for='password'>Password</label>
-	<input type='password' name='password' id='password'>
-	</div>
-
-	<div class='form-group'>
-	<label for='password_confirmation'>Confirm Password</label>
-	<input type='password' name='password_confirmation' id='password_confirmation'>
-	</div>
-
-	<button type='submit' class='btn btn-primary'>Register</button>
-
-	</form>-->
-
 	<div class="container">
 		<div class=" col-md-offset-3 col-md-6 col-md-offset-3">
-		<!--
-		<div class="register">
-					<div class="row">		
-				<div class="col-md-offset-3 col-md-6 col-md-offset-3">-->
-					<h1>Register</h1>
+					<br><br><br>
 					<div class="panel">
 						<div class="panel-heading">
-							<h3 class="panel-title">New Member</h3>
+							<h3 class="panel-title">New Member Registration</h3>
 						</div>
 						<div class="panel-body">
 							<div class="row">
@@ -103,12 +71,12 @@ Come in to Clap!
 									<div class="col-md-8">
 										<div class="radio">
 											<label>
-												<input type="radio" name="gender">
+												<input type="radio" name="gender" value="Female">
 												Female</label>
 										</div>
 										<div class="radio">
 											<label>
-												<input type="radio" name="gender">
+												<input type="radio" name="gender" value="Male">
 												Male</label>
 										</div>
 									</div>
@@ -138,7 +106,7 @@ Come in to Clap!
 									<div class="col-md-8">
 										<input type="submit" class="btn btn-primary" value="SignUp">
 										<span></span>
-										<input id="reset2" type="reset" class="btn btn-default" value="Cancel">
+										<input id="reset2" type="reset" class="btn btn-default" value="Reset">
 									</div>
 								</div>
 								@if(count($errors) > 0)

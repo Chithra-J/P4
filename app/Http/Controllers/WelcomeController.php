@@ -16,8 +16,7 @@ class WelcomeController extends Controller {
 	public function index() {
 		if (Auth::user()) {
 			$parent = \P4\User::where('id', '=', Auth::user()->id) -> get() -> first();
-			//print_r($parent);
-			return view('parents.showparentsdetails') -> with(['parent' => $parent]);
+			return view('parents.show') -> with(['parent' => $parent]);
 		} else {
 			return view('clapevents.index');
 		}		

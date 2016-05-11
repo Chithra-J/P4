@@ -62,15 +62,15 @@ class AuthController extends Controller {
      */
     protected function create(array $data)
     {
-		 return User::create([
+    	print_r($data);
+		return User::create([
                     'name' => $data['name'],
                     'email' => $data['email'],
 					'password' => bcrypt($data['password']),
 					'middle' => $data['middle'],
 					'lastname' => $data['lastname'],
 					'firstname' => $data['firstname'],	
-					'gender' => (((array_key_exists('female',$data)) && !is_null($data['female']) && ($data['female'] == "on")) ? 
-							"female" : (((array_key_exists('male',$data)) &&!is_null($data['male']) && ($data['male'] == "on")) ? "male" : "")),				
+					'gender' => $data['gender'],				
                 ]);              
     }
 
@@ -82,8 +82,6 @@ class AuthController extends Controller {
     public function logout()
     {
         \Auth::guard($this->getGuard())->logout();
-
-        \Session::flash('message','You have been logged out.');
 
         return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
     }

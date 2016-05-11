@@ -13,94 +13,31 @@ use File;
 class ParentsController extends Controller {
 
 	public function getCreate() {
-		//$parent = \P4\User::where('email', '=', Auth::user() -> email) -> get() -> first();
 		$parent = \P4\User::find(Auth::user() -> id);
-		return view('parents.getparentsdetails') -> with(['parent' => $parent]);
+		return view('parents.create') -> with(['parent' => $parent]);
 	}
 
 	
 	public function postEdit(Request $request) {
 
 		$parent = \P4\User::find($request->user_id);
-		
-		//$parent = \P4\User::where('email', '=', $request -> email) -> get() -> first();
-		//dump($parent);
-		//print_r($request);
-
 		$parent -> firstname = $request -> firstname;
 		$parent -> lastname = $request -> lastname;
 		$parent -> middle = $request -> middle;
 		$parent -> name = $request -> username;
 		$parent -> password = \Hash::make($request -> password);
-		if (!is_null($request -> female) && ($request -> female == "on")) {
-				$parent -> gender = "female";
-			}
-			if (!is_null($request -> male) && ($request -> male == "on")) {
-				$parent -> gender = "male";
-		}
-		//$parent -> gender = $request -> gender;
+		$parent -> gender = $request -> gender;
 		$parent -> save();
 
-		\Session::flash('message', 'Your profile changes were saved.');
-		return view('parents.showparentsdetails') -> with(['parent' => $parent]);
+		return view('parents.show') -> with(['parent' => $parent]);
 
 	}
-
-	/*
-	public function getExisting(Request $request) {
-			$this -> validate($request, ['email' => 'required|string', 'password' => 'required|string', ]);
-			$parent = \P4\User::where('email', '=', $request -> email) -> get() -> first();
-	
-			if ($parent != null) {
-				return view('parents.showparentsdetails') -> with('parent', $parent);
-			} else {
-				\Session::flash('message', 'No such registered email adress! Please verify your username');
-				return redirect('/parents/login');
-			}
-	
-		}
-	
-
-	public function postCreate(Request $request) {
-
-		$this -> validate($request, ['firstname' => 'required|string', 'email' => 'required|string', 'password' => 'required|string', 'confirm_password' => 'required|string', ]);
-
-		//$data = $request -> all();
-		dump($request);
-
-		$parent = \P4\User::where('email', '=', $request -> email) -> get() -> first();
-
-		if ($parent != null) {
-			\Session::flash('message', 'You have already signed up to Clap! Please try login using your email address');
-			return redirect('/parents/login');
-		} else {
-			// Create new Parent
-			$parent = new \P4\User();
-			$parent -> firstname = $request -> firstname;
-			$parent -> lastname = $request -> lastname;
-			$parent -> middle = $request -> middle;
-			$parent -> name = $request -> username;
-			$parent -> password = \Hash::make($request -> password);
-			//$parent->picture_location = $request->picture_location;
-			if (!is_null($request -> female) && ($request -> female == "on")) {
-				$parent -> gender = "female";
-			}
-			if (!is_null($request -> male) && ($request -> male == "on")) {
-				$parent -> gender = "male";
-			}
-			$parent -> save();
-			dump($parent);
-		}
-
-		return view('parents.showparentsdetails') -> with(['parent' => $parent]);
-	}*/
-
-	public function editProfilePicture() {
-		$parent = \P4\User::where('email', '=', Auth::user() -> email) -> get() -> first();
-		return view('parents.getprofilepicture') -> with(['parent' => $parent]);
+	public function getProfilePicture() {
+		$parent = \P4\User::find(Auth::user() -> id);
+		return view('parents.createProfilePicture') -> with(['parent' => $parent]);
 	}
 
-	public function processProfilePicture() {
+	public function postProfilePicture() {
 
 		if (empty($_FILES['images'])) {
 			echo json_encode(['error' => 'No files found for upload.']);
@@ -146,16 +83,19 @@ class ParentsController extends Controller {
 	}
 
 	public function postEditProfilePicture(Request $request) {
-		$parent = \P4\User::where('email', '=', $request -> email) -> get() -> first();
+		$parent = \P4\User::where('id', '=', $request -> user_id) -> get() -> first();
+		if(is_null($parent)) {
+            \Session::flash('message','Event for this child not found');
+            return redirect('/parents/create');
+        }
 		if ($request -> remove_profile_picture == "on") {
-			$parent -> picture_location = "";
+			$parent -> picture_location = "/assets/images/avatar.png";
 		}
 		if (!is_null($request -> picture_location_to_store) && ($request -> picture_location_to_store != "")) {
 			$parent -> picture_location = $request -> picture_location_to_store;
 		}
-
 		$parent -> save();
-		return view('parents.showparentsdetails') -> with(['parent' => $parent]);
+		return view('parents.show') -> with(['parent' => $parent]);
 	}
 	
 
