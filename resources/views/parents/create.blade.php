@@ -69,24 +69,7 @@ Clap Events - Editing My Profile
 								</div>
 							</div>
 						</div>
-						<div class="form-group">
-							<label class="col-md-3 control-label">Password:</label>
-							<div class="col-md-8">
-								<input class="form-control" type="password"  name='password'  value=''>
-								<div class='error'>
-									{{ $errors->first('password') }}
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-md-3 control-label">Confirm password:</label>
-							<div class="col-md-8">
-								<input class="form-control" type="password"  name='confirm_password'  value=''>
-								<div class='error'>
-									{{ $errors->first('confirm_password') }}
-								</div>
-							</div>
-						</div>
+						
 						<div class="form-group">
 							<div class="col-md-11 center-text">
 								<input type="submit" class="btn btn-primary" value="Save Changes">

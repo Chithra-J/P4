@@ -1,27 +1,50 @@
-# Laravel PHP Framework
+# Dynamic Web Applications - Project P4
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+Project P4 is bring together a fully functioning web application that uses PHP, Laravel, and a database. 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+1. Creating a new Laravel web application. 
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+   1.1 "Clap Event" are focused for parent who want to track their kid's accomplishments. This website gives the user to create profile for themself, their children
+	and the events that they are participating. Parents have the flexibility to record events that happened in past or create events that are upcoming to tracks. The events can be anything that he child
+	participates in, it could be an academic event or sports or something else. 
 
-## Official Documentation
+2. Installing and using Composer packages. 
+	
+	2.1 kartik-v/bootstrap-fileinput for uploading profile picture.	
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+3. Routing basics - Used routes with basic routes parameters passed to the controller. The controller have the methods implemented that was reffered in the routes file. 
+	HTTP request is used to get current instance of request and validation is applied before executing post.
+	
+4. Views: Blade templates used for rendering of web pages. 
+	
+	4.1 In addition used 
+		
+		4.1.1 Bootstrap for the advanced styling and faster responsiveness 
+		
+		4.1.2 jQuery is used to handle dynamic content delivery
+				
+				4.4.2.1 handle profile picture upload.
+				
+				4.4.2.2 handle accordion toggle event for showing different event a child participate.
+	
+5. Database CRUD operation: Performed for the following action upon 3 tables (Users, Children and Events)
+	
+	5.1 A new user is created when they register through the site and they can update their profile with profile picture
+	5.2 Every logged user can add new child, edit and remove from their profile
+	5.3 Events can be created, updated, deleted and displayed(read). 
 
-## Contributing
+6. Refrences
+	5.1 Foobook web application from this course
+	5.2 Image for default user profile picture is  from www.relevantmagazine.com
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+7. Deploying a Laravel app on a live server. 
 
-## Security Vulnerabilities
+#### NOTE: The profile picture will be stored based on the user id under public/assets/uploads/ . For fresh install, make sure that directory is writeable.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+## Live URL of the project
 
-## License
+Live URL of the project can be found [here](http://P4.chanchika.me/).
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+## Demo
+
+Link to screencast demo can be found [here](http://www.screencast.com/users/Chithra_Jayakumar/folders/DWA/media/07a44d4f-3d25-4eae-9425-39126c83d896).

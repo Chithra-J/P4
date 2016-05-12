@@ -53,7 +53,6 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('/events/confirm-removeEvent/{id?}', 'EventsController@getRemoveEvent');
     Route::get('/events/removeEvent/{id?}', 'EventsController@postRemoveEvent');
 	
-	Route::get('/events/createEventsReport/{id?}', 'EventsController@getEventsReport');
 	
 	
 });

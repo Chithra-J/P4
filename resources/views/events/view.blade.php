@@ -24,24 +24,18 @@ Clap Events - View Events for {{ $child->firstname }}
 								<a href='{{ url('/events/create') }}' class="btn btn-primary btn-sm" id="btn-next">Go Back</a>
 								&nbsp;&nbsp;&nbsp;
 								<a href="/events/createEvent/{{$child->id}}" class="btn btn-primary btn-sm" >Add an Event
-								</a>&nbsp;&nbsp;&nbsp;
-								<!-- strech goal
-								<a href="/events/createEventsReport/{{$child->id}}" class="btn btn-primary btn-sm" >Create PDF Report
-																</a>-->
-								
-							</div>
-							
-						</div>
-						
-						<br>
-						
-						<br>
-						
+								</a>&nbsp;&nbsp;&nbsp;														
+							</div>							
+						</div>						
+						<br>						
+						<br>												
 						<div class="col-md-12">
 							<p><strong>
 								Click on the event (if any listed below) to see the details of the event for <em>{{$child->firstname}}</em>
 							</strong></p>
-						<?php $id_count = 1; ?>
+						<?php 
+							$id_count = 1; 
+						?>
 						<div class="accordion" id="accordionid">
 						<div class="accordion-group">
 							@foreach ($events as $event)
@@ -106,7 +100,9 @@ Clap Events - View Events for {{ $child->firstname }}
 							</div>
 							<br>
 							<?php $id_count++; ?>
-							@endforeach
+							@endforeach	
+							
+												
 						</div>
 					</div>
 					</div>
@@ -115,6 +111,7 @@ Clap Events - View Events for {{ $child->firstname }}
 			</div>
 		</div>
 	</div>
+	
 </section>
 @stop
 

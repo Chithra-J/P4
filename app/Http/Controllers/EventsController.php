@@ -2,12 +2,13 @@
 
 namespace P4\Http\Controllers;
 require __DIR__ . '/../../../vendor/autoload.php';
-//require __DIR__ . '/../../../vendor/danielboendergaard/phantom-pdf/src/PdfGenerator.php';
 use P4\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use P4\Http\Requests;
 use Auth;
-use Knp\Snappy\Pdf;
+
+
+use Illuminate\Support\Facades\Input;
 
 class EventsController extends Controller {
 	public function getEventsProfile() {		
@@ -28,20 +29,7 @@ class EventsController extends Controller {
 			-> with('events', $events)
             -> with('child', $child);
 	}
-	public function getEventsReport($id) {
-		$path=public_path().'\assets\reports\github.pdf';
-		$parent = \P4\User::find(Auth::user() -> id);
-        $view =  view('parents.create') -> with(['parent' => $parent]);
-		if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-			$bin_path=base_path().'\vendor\wemersonjanuario\wkhtmltopdf-windows\bin\64bit\wkhtmltopdf.exe';
-		} else if (strtoupper(substr(PHP_OS, 0, 3)) === 'LINUX') {
-			$bin_path=base_path().'\vendor\wemersonjanuario\wkhtmltopdf-windows\bin\64bit\wkhtmltopdf.exe';
-		}
-		dump($bin_path);
-		$myProjectDirectory = '/path/to/my/project';
-		$snappy = new Pdf($bin_path);
-        $snappy->generateFromHtml('<p>Some content</p>', 'test.pdf');
-	}
+	
 	public function getCreateEvent($id) {
 		$child = \P4\Child::find($id);
 		return view('events.create') 
