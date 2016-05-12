@@ -21,8 +21,8 @@ class CreateUsersTable extends Migration
 			$table -> string('firstname');
 			$table -> string('lastname');
 			$table -> string('middle');
-			$table -> string('gender');
-			$table -> string('picture_location')->default("\\\\assets\\\\images\\\\avatar.png");
+			$table -> string('gender')->nullable();
+			$table -> string('picture_location')->default("/assets/images/avatar.png");
             $table->timestamps();
         });
     }

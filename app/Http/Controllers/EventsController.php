@@ -24,7 +24,6 @@ class EventsController extends Controller {
             return redirect('/events/create');
         }
 		$events = \P4\Child::with('events')->find($child->id) -> events;
-		
 		return view('events.view')
 			-> with('events', $events)
             -> with('child', $child);
@@ -33,9 +32,11 @@ class EventsController extends Controller {
 		$path=public_path().'\assets\reports\github.pdf';
 		$parent = \P4\User::find(Auth::user() -> id);
         $view =  view('parents.create') -> with(['parent' => $parent]);
-		dump($view);
-		dump($parent);
-		$bin_path=base_path().'\vendor\wemersonjanuario\wkhtmltopdf-windows\bin\64bit\wkhtmltopdf.exe';
+		if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+			$bin_path=base_path().'\vendor\wemersonjanuario\wkhtmltopdf-windows\bin\64bit\wkhtmltopdf.exe';
+		} else if (strtoupper(substr(PHP_OS, 0, 3)) === 'LINUX') {
+			$bin_path=base_path().'\vendor\wemersonjanuario\wkhtmltopdf-windows\bin\64bit\wkhtmltopdf.exe';
+		}
 		dump($bin_path);
 		$myProjectDirectory = '/path/to/my/project';
 		$snappy = new Pdf($bin_path);
@@ -50,10 +51,10 @@ class EventsController extends Controller {
 	public function postCreateEvent(Request $request) {
 		$this -> validate($request, ['event_name' => 'required|string', 'event_date' => 'required|string', ]);
 		$data = $request->only('event_name','event_date','level','rounds','standing','grade','school_name','school_year','winner','child_id');
-		$data['user_id'] = \Auth::id();
+		$data['user_id'] = \Auth::id();		
 		$event = \P4\Event::create($data);
 		$event -> save();
-		return redirect('/events/create');
+		return redirect('/events/viewEvent/'.$request->child_id);
 	}
 	
 	public function getEditEvent($id) {

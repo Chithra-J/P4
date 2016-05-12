@@ -21,16 +21,6 @@ class Event extends Model
         # Define a one-to-many relationship.
         return $this->belongsTo('\P4\User');
     }
-	/*
-	public static function authorsForDropdown() {
-				 # Get all level
-			$authors = \App\Author::orderBy('last_name','ASC')->get();
-				 $authors_for_dropdown = [];
-			$authors_for_dropdown[0] = 'Choose an author...';
-				 foreach($authors as $author) {
-				$authors_for_dropdown[$author->id] = $author->last_name.', '.$author->first_name;
-			}
-				 return $authors_for_dropdown;
-			 }*/
+	
 	
 }

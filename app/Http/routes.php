@@ -12,7 +12,7 @@ Route::get('/logout', 'Auth\AuthController@logout');
 Route::get('/', 'WelcomeController@index');
 
 Route::group(['middleware' => 'auth'], function() {
-	
+		
 	/****** Parents/Users Routes ********/
 	
 	Route::get('/parents/create', 'ParentsController@getCreate');
@@ -54,13 +54,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/events/removeEvent/{id?}', 'EventsController@postRemoveEvent');
 	
 	Route::get('/events/createEventsReport/{id?}', 'EventsController@getEventsReport');
-	Route::get('/getpdf', function()
-	{
-	    $html = '<html><body>'
-	            . '<p>Put your html here, or generate it with your favourite '
-	            . 'templating system.</p>'
-	            . '</body></html>';
-	    return PDF::load($html, 'A4', 'portrait')->download('my_pdf.pdf');
-	});
+	
 	
 });

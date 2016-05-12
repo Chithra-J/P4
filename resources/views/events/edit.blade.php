@@ -10,7 +10,7 @@ Clap Events - Editing Event for {{$child->firstname}}
 <section>
 	<div class="container">
 		<div class="row">
-			<form id="form1" class="form-horizontal" enctype="multipart/form-data" role="form" method='POST' action='/events/editEvent'>
+			<form id="form1" class="form-horizontal" enctype="multipart/form-data" method='POST' action='/events/editEvent'>
 				{{ csrf_field() }}
 				<input type='hidden' name='event_id' value='{{$event->id}}'>
 				<input type="hidden" name="child_id" value={{ $child->id }}>
@@ -19,19 +19,7 @@ Clap Events - Editing Event for {{$child->firstname}}
 						<div class="panel-heading">
 							<h3 class="panel-title">Editing Event for {{$child->firstname}}</h3>
 						</div>
-						<div class="panel-body">							
-							<!--
-							<div class="form-group">
-								@if ( (!empty($parent -> picture_location)) and ($parent -> picture_location != "") and ($parent -> picture_location != NULL) and (!empty($parent -> picture_location)))
-									<a id="editprofilepicture" class="col-lg-4" href="/parents/addProfilePicture">Edit Profile Picture</a>
-									<div class="col-lg-7">									
-										<img alt="User Picture" src={{ URL::to('/') }}{{ $parent->picture_location }} class="img-circle img-responsive">	
-																		
-									</div>
-								@else 
-									<a id="editprofilepicture" class="col-lg-offset-3 col-lg-5" href="/parents/addProfilePicture">Add Profile Picture</a>
-								@endif
-							</div>-->							
+						<div class="panel-body">						
 							<div class="form-group">
 								<label class="col-lg-4 control-label">* Event name:</label>
 								<div class="col-lg-7">
@@ -117,7 +105,7 @@ Clap Events - Editing Event for {{$child->firstname}}
 									</div>
 								<div class="col-md-6">										
 										<div class="radio">
-											<label><input type="radio" name="winner" value="0" @if(!(old('winner',$event->winner))) checked @endif>No</label>
+											<label><input type="radio" name="winner" value="0" @if((old('winner',$event->winner))===0) checked @endif>No</label>
 										</div>
 									</div>
 								</div>
@@ -137,69 +125,9 @@ Clap Events - Editing Event for {{$child->firstname}}
 				</div>
 			</form>
 		</div>
-
+	</div>
 </section>
-<hr class="hr-style">
-</div>
 @stop
 @section('body')
-<script>
-	$(window).load(function() {
-		$("div.input-group").addClass("input-group-sm");
-	});
-	$.ajaxSetup({
-		headers : {
-			'X-CSRF-TOKEN' : '{{ csrf_token() }}'
-		}
-	});
-	$(document).ready(function() {
-	$('#datetimepicker').datetimepicker({
-			viewMode: 'years',
-			'allowInputToggle' : true,
-                format: 'YYYY-MM-DD'
-	    	});
-	    $('#datetimepicker1').datetimepicker({
-			viewMode: 'years',
-			'allowInputToggle' : true,
-                format: 'YYYY'
-	    	});
-		$("#datetimepicker").val($("#event_date").val()).change();
-		$("#datetimepicker1").val($("#school_year").val()).change();
-		
-		$("ul.nav > li >").find(".active").removeClass("active");
-		$('#editEvent').addClass("active");
-		$("footer div.navbar.nav-footer").removeClass("navbar-fixed-bottom");
-
-		$("#images").fileinput({
-			initialPreview : "<img style='height:160px' src='" + $('#preview_picture_location').val() + "'>",
-			cache : false,
-			uploadAsync : false,
-			uploadUrl : "/parents/editPicture",
-			uploadExtraData : function() {
-				return {
-					user_id : $("#user_id").val()
-				};
-			},
-			allowedFileExtensions : ['jpg', 'png', 'gif'],
-			allowedFileTypes : ['image'],
-			previewFileType : "image",
-			overwriteInitial : true,
-			maxFilesNum : 1
-		});
-		$('#images').on('filebatchuploadsuccess', function(event, data, previewId, index) {
-			var response = data.response;
-			$('#picture_location_to_store').val(response['uploaded'][1]);
-		});
-	});
-
-	$('#sidebar').affix({
-		offset : {
-			top : 150
-		}
-	});
-
-	$('#reset1').click(function() {
-		$('#form1')[0].reset();
-	}); 
-</script>
+	<script src="/assets/js/events/edit.js"></script>
 @stop

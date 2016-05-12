@@ -42,23 +42,15 @@ Clap Events - Deleting Event for {{ $child_firstname }}
 						</div>
 						<div class="row">
 							<div class="center-text col-md-12 ">
-								<strong><p>
+								<p><strong>
 									Are you sure you want to remove this event for <em>{{$child_firstname}}</em>?
-								</p></strong>
+								</strong></p>
 								<p>
-									<strong><a href='/events/removeEvent/{{$event->id}}'>
-									<button type="button" class="btn btn-primary btn-sm ">
-										&nbsp;&nbsp;&nbsp;Yes, remove&nbsp;
-									</button></a></strong>
+									<strong><a href='/events/removeEvent/{{$event->id}}' class="btn btn-primary btn-sm ">
+										&nbsp;&nbsp;&nbsp;Yes, remove&nbsp;</a></strong>
 								</p>
 								<p>
-									<?php
-									$url = htmlspecialchars($_SERVER['HTTP_REFERER']);
-									?>
-									<a href={{ $url }}>
-									<button type="button" class="btn btn-primary btn-sm ">
-										&nbsp;No, I want to keep this event for <em>{{$child_firstname}}!</em> &nbsp;
-									</button></a>
+									<a href='{{ url('/events/create') }}' class="btn btn-primary btn-sm" id="btn-next">No, I want to keep this event for <em>{{$child_firstname}}!</a>
 								</p>
 							</div>
 						</div>
@@ -71,17 +63,5 @@ Clap Events - Deleting Event for {{ $child_firstname }}
 @stop
 
 @section('body')
-<script>
-	$(document).ready(function() {
-		$("footer div.navbar.nav-footer").removeClass("navbar-fixed-bottom");
-		$("ul.nav > li >").find(".active").removeClass("active");
-		$('#editEvent').addClass("active");
-	});
-	$('#sidebar').affix({
-		offset : {
-			top : 100
-		}
-	});
-
-</script>
+	<script src="/assets/js/events/remove.js"></script>
 @stop

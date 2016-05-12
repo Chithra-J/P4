@@ -21,7 +21,7 @@ class CreateChildrenTable extends Migration
             $table->string('middle');
 			$table->string('picture_location');
             $table->date('date_of_birth');
-			$table -> string('gender');
+			$table -> string('gender')->nullable();
 			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }

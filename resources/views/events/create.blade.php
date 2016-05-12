@@ -10,7 +10,7 @@ Clap Events - Adding Event for {{$child->firstname}}
 <section>
 	<div class="container">
 		<div class="row">
-			<form id="form1" class="form-horizontal" role="form" method='POST' action='/events/createEvent'>
+			<form id="form1" class="form-horizontal" method='POST' action='/events/createEvent'>
 				<input type='hidden' name='_token' value='{{ csrf_token() }}'>
 				<input type="hidden" name="child_id" value={{ $child->id }}>
 				<div class="col-md-offset-1 col-md-10 personal-info">
@@ -18,19 +18,7 @@ Clap Events - Adding Event for {{$child->firstname}}
 						<div class="panel-heading">
 							<h3 class="panel-title">Add Event for {{$child->firstname}}</h3>
 						</div>
-						<div class="panel-body">							
-							<!--
-							<div class="form-group">
-								@if ( (!empty($parent -> picture_location)) and ($parent -> picture_location != "") and ($parent -> picture_location != NULL) and (!empty($parent -> picture_location)))
-									<a id="editprofilepicture" class="col-lg-4" href="/parents/addProfilePicture">Edit Profile Picture</a>
-									<div class="col-lg-7">									
-										<img alt="User Picture" src={{ URL::to('/') }}{{ $parent->picture_location }} class="img-circle img-responsive">	
-																		
-									</div>
-								@else 
-									<a id="editprofilepicture" class="col-lg-offset-3 col-lg-5" href="/parents/addProfilePicture">Add Profile Picture</a>
-								@endif
-							</div>-->							
+						<div class="panel-body">								
 							<div class="form-group">
 								<label class="col-lg-4 control-label">* Event name:</label>
 								<div class="col-lg-7">
@@ -136,38 +124,10 @@ Clap Events - Adding Event for {{$child->firstname}}
 				</div>
 			</form>
 		</div>
+	</div>
 </section>
-</div>
+
 @stop
 @section('body')
-<script>
-	$(window).load(function() {
-		$("div.input-group").addClass("input-group-sm");
-	});
-
-	$(document).ready(function() {
-		$('#datetimepicker').datetimepicker({
-			viewMode: 'years',
-			'allowInputToggle' : true,
-                format: 'YYYY-MM-DD'
-	    	});
-	    $('#datetimepicker1').datetimepicker({
-			viewMode: 'years',
-			'allowInputToggle' : true,
-                format: 'YYYY'
-	    	});
-		$("ul.nav > li >").find(".active").removeClass("active");
-		$('#editEvent').addClass("active");
-		$("footer div.navbar.nav-footer").removeClass("navbar-fixed-bottom");
-	});
-	$('#sidebar').affix({
-		offset : {
-			top : 150
-		}
-	});		 
-
-	$('#reset1').click(function() {
-		$('#form1')[0].reset();
-	}); 
-</script>
+	<script src="/assets/js/events/create.js"></script>
 @stop

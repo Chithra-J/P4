@@ -3,14 +3,14 @@
 @section('title')
 Clap Events - Editing my profile picture
 @stop
-@section('header')
-
+@section('head')
+<script src="/assets/js/parents/headerProfilePicture.js"></script>
 @stop
 @section('content')
 <section>
 	<div class="container">
-			<form id="form1" class="form-horizontal" enctype="multipart/form-data" role="form" method='POST' action='/parents/showProfilePicture'>
-				{{ csrf_field() }}
+			<form id="form1" class="form-horizontal" enctype="multipart/form-data" method='POST' action='/parents/showProfilePicture'>
+				<input type='hidden' name='_token' value='{{ csrf_token() }}'>
 				<div class="col-md-offset-1 col-md-9">
 					<div class="fixed-panel panel">
 						<div class="panel-heading">
@@ -41,8 +41,7 @@ Clap Events - Editing my profile picture
 							<br><div class="form-group">
 							<div class="col-md-11 center-text">
 								<button type="submit" class="btn btn-primary">Save changes</button>
-								<!--<a href='{{ Config::get('app.url').'/parents/create'}}' class="btn btn-primary" id="btn-next">Cancel</a>-->
-								<a href='{{ url('/parents/create') }}' class="btn btn-default" id="btn-next">Cancel</a>
+								<a href='{{ url('/') }}' class="btn btn-default" id="btn-next">Cancel</a>
 							</div>							
 							</div>
 						</div>
@@ -51,62 +50,8 @@ Clap Events - Editing my profile picture
 			</form>
 			</div>
 </section>
-<hr class="hr-style">
 
 @stop
 @section('body')
-<script>
-	$(window).load(function() {
-		$("div.input-group").addClass("input-group-sm");
-		/*$("div.kv-upload-progress").removeClass("hide");*/
-	});
-	$.ajaxSetup({
-		headers : {
-			'X-CSRF-TOKEN' : '{{ csrf_token() }}'
-		}
-	});
-	$('#remove_profile_picture').click(function() {
-	    if( $('#remove_profile_picture:checked').length > 0 ) {
-	        $(".file-input.file-input-ajax-new").hide();
-	    } else {
-	        $(".file-input.file-input-ajax-new").show();
-	    }
-	});
-	$(document).ready(function() {
-		/*$("ul.nav > li >").find(".active").removeClass("active");*/
-		$('#editProfile').addClass("active");
-		$("footer div.navbar.nav-footer").removeClass("navbar-fixed-bottom");
-		$("#images").fileinput({
-			cache : false,
-			uploadAsync : false,
-			uploadUrl : "/parents/addProfilePicture",
-			uploadExtraData : function() {
-				return {
-					user_id : $("#user_id").val()
-				};
-			},
-			allowedFileExtensions : ['jpg', 'png', 'gif'],
-			allowedFileTypes : ['image'],
-			previewFileType : "image",
-			overwriteInitial : true,
-			maxFilesNum : 1,
-			initialPreview : "<img style='height:160px' src='" + $('#preview_picture_location').val() + "'>"
-		});
-		$('#images').on('filebatchuploadsuccess', function(event, data, previewId, index) {
-			var response = data.response;
-			$('#picture_location_to_store').val(response['uploaded'][1]);
-		});
-
-	});
-
-	$('#sidebar').affix({
-		offset : {
-			top : 150
-		}
-	});
-
-	$('#reset1').click(function() {
-		$('#form1')[0].reset();
-	}); 
-</script>
+	<script src="/assets/js/parents/createProfilePicture.js"></script>
 @stop

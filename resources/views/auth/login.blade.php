@@ -23,20 +23,18 @@ Come in to Clap!
 							</ul>
 							@endif
 						</div>
-						<form id="form1" class="form-horizontal" role="form" method='POST' action='/login'>
+						<form id="form1" class="form-horizontal" method='POST' action='/login'>
 							{!! csrf_field() !!}
 							<div class="form-group">
 								<label class="col-md-5 control-label">* Email Address:</label>
 								<div class="col-md-6">
-									<!--<input class="form-control" type="text" name='username' value='{{ old('username') }}'>-->
-									<input class="form-control" type="text" name='email' id='email' value='chit@w.com'>
+									<input class="form-control" type="text" name='email' id='email' value='{{ old('email') }}'>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-md-5 control-label">* Password:</label>
 								<div class="col-md-6">
-									<!--<input class="form-control" type="password"  name='password'  value='{{ old('password') }}'>-->
-									<input class="form-control" type="password"  name='password' id='password' value='helloworld'>
+									<input class="form-control" type="password"  name='password' id='password' value='{{ old('password') }}'>
 									<div class='error'>
 										{{ $errors->first('password') }}
 									</div>
@@ -55,8 +53,7 @@ Come in to Clap!
 								<label class="col-md-5 control-label"></label>
 								<div class="col-md-6">
 									<input type="submit" class="btn btn-primary" value="Login">
-									<span></span>
-									<input id="reset1" type="reset" class="btn btn-default" value="Cancel">
+									<a href='{{ url('/') }}' class="btn btn-default">Cancel</a>
 								</div>
 							</div>
 							@if(count($errors) > 0)
@@ -72,9 +69,5 @@ Come in to Clap!
 </section>
 @stop
 @section('body')
-<script>
-	$(document).ready(function() {
-		$('ul.nav.nav-pills.nav-stacked').hide();
-	}); 
-</script>
+	<script src="/assets/js/auth/login.js"></script>
 @stop

@@ -51,7 +51,7 @@ class AuthController extends Controller {
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
 	protected function validator(array $data) {
-		return Validator::make($data, ['name' => 'required|max:255', 'email' => 'required|email|max:255|unique:users', 'password' => 'required|min:6|confirmed', ]);
+		return Validator::make($data, ['firstname' => 'required|max:255', 'username' => 'required|max:255', 'email' => 'required|email|max:255|unique:users', 'password' => 'required|min:6|confirmed', ]);
 	}
 
 	/**
@@ -62,16 +62,19 @@ class AuthController extends Controller {
      */
     protected function create(array $data)
     {
-    	print_r($data);
+		if (!array_key_exists('gender', $data)) {
+			$data['gender'] = NULL;
+		}
 		return User::create([
-                    'name' => $data['name'],
-                    'email' => $data['email'],
-					'password' => bcrypt($data['password']),
-					'middle' => $data['middle'],
-					'lastname' => $data['lastname'],
-					'firstname' => $data['firstname'],	
-					'gender' => $data['gender'],				
-                ]);              
+							'name' => $data['username'],
+							'email' => $data['email'],
+							'password' => bcrypt($data['password']),
+							'middle' => $data['middle'],
+							'firstname' => $data['firstname'],
+							'lastname' => $data['lastname'],	
+							'gender' => $data['gender'],				
+						]); 
+		           
     }
 
     /**

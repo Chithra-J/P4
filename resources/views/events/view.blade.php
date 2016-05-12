@@ -23,64 +23,93 @@ Clap Events - View Events for {{ $child->firstname }}
 							<div class="col-md-11">								
 								<a href='{{ url('/events/create') }}' class="btn btn-primary btn-sm" id="btn-next">Go Back</a>
 								&nbsp;&nbsp;&nbsp;
-								<a href="/events/createEvent/{{$child->id}}">
-								<input name="back" type="button" class="btn btn-primary btn-sm" value="Add an Event">
+								<a href="/events/createEvent/{{$child->id}}" class="btn btn-primary btn-sm" >Add an Event
 								</a>&nbsp;&nbsp;&nbsp;
-								<a href="/events/createEventsReport/{{$child->id}}">
-								<input name="back" type="button" class="btn btn-primary btn-sm" value="Create PDF Report">
-								</a>
+								<!-- strech goal
+								<a href="/events/createEventsReport/{{$child->id}}" class="btn btn-primary btn-sm" >Create PDF Report
+																</a>-->
+								
 							</div>
 							
 						</div>
 						
 						<br>
+						
 						<br>
+						
 						<div class="col-md-12">
-							<table class="child-table table table-user-information">							
-								<thead>
-									<tr>
-										<td>Child Name</td>
-										<td>Event</td>
-										<td>Date</td>
-										<td>Level</td>
-										<td>Round</td>
-										<td>Standing</td>
-										<td>Won</td>
-										<td>Grade</td>
-										<td>School</td>
-										<td colspan="2" class="center-text">Action</td>									
-									</tr>
-								</thead>
-								<tbody>																	
-									@foreach($events as $event)
-									<tr>
-										<td>{{ $child->firstname }}</td>
-										<td>{{ $event->event_name }}</td>
-										<td>{{ $event->event_date }}</td>
-										<td>{{ $event->level }}</td>
-										<td>{{ $event->rounds }}</td>
-										<td>{{ $event->standing }}</td>
-										<td>@if($event->winner) 
-												Won
-											@else 
-												Lost
-											@endif</td>
-										<td>{{ $event->grade }}</td>
-										<td>{{ $event->school_name }}</td>										
-										<td class="center-text"><a href="/events/editEvent/{{$event->id}}">
-										<button type="button" class="btn btn-primary btn-sm ">
-											Edit
-										</button></a></td>
-										<td class="center-text"><a href="/events/confirm-removeEvent/{{$event->id}}">
-										<button type="button" class="btn btn-primary btn-sm ">
-											Remove
-										</button></a></td>
-									</tr>
-									@endforeach
-								</tbody>
-							</table>
-							
+							<p><strong>
+								Click on the event (if any listed below) to see the details of the event for <em>{{$child->firstname}}</em>
+							</strong></p>
+						<?php $id_count = 1; ?>
+						<div class="accordion" id="accordionid">
+						<div class="accordion-group">
+							@foreach ($events as $event)
+							<div class="accordion-heading">
+								<div class="col-md-12">
+									<div class="col-md-6">
+										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionid" href="event-generator#{{ $id_count }}"> 
+												{{ $id_count }}&nbsp;. &nbsp; &nbsp; Event Name: {{ $event->event_name }} &nbsp; Event Date: {{$event->event_date}}
+										</a>
+									</div>
+									<div class="col-md-3">
+										<a href="/events/editEvent/{{$event->id}}" class="btn btn-primary btn-sm ">
+												Edit</a>
+									</div>
+									<div class="col-md-3">
+										<a href="/events/confirm-removeEvent/{{$event->id}}" class="btn btn-primary btn-sm ">
+												Remove</a>
+									</div>
+								</div>
+							</div>
+							<div id="{{ $id_count }}" class="accordion-body collapse">
+								<div class="accordion-inner" >
+									<div class="col-md-12 list-detail well">
+										<br>
+										
+										<table class="child-table table table-user-information">
+											<tbody>
+												<tr>
+													<td><strong><em>Level at which the event is happening</em></strong></td>
+													<td>{{ $event->level }}</td>
+												</tr>
+												<tr>
+													<td><strong><em>How many rounds have gone</em></strong></td>
+													<td>{{ $event->rounds }}</td>
+												</tr>
+												<tr>
+													<td><strong><em>Standing</em></strong></td>
+													<td>{{ $event->standing }}</td>
+												</tr>
+												<tr>
+													<td><strong><em>Winner</em></strong></td>
+													<td>@if($event->winner==1) 
+															Won
+														@elseif (!is_null($event->winner) && ($event->winner==0))
+															Lost
+														@endif</td>
+												</tr>
+												<tr>
+													<td><strong><em>Grade during this event</em></strong></td>
+													<td>{{ $event->grade }}</td>
+												</tr>
+												<tr>
+													<td><strong><em>School Name</em></strong></td>
+													<td>{{ $event->school_name }}</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<br>
+									
+								</div>
+							</div>
+							<br>
+							<?php $id_count++; ?>
+							@endforeach
 						</div>
+					</div>
+					</div>
 					</div>
 				</div>
 			</div>
@@ -90,17 +119,5 @@ Clap Events - View Events for {{ $child->firstname }}
 @stop
 
 @section('body')
-<script>
-	$(document).ready(function() {
-		$("footer div.navbar.nav-footer").removeClass("navbar-fixed-bottom");
-		$("ul.nav > li >").find(".active").removeClass("active");
-		$('#editEvent').addClass("active");
-	});
-	$('#sidebar').affix({
-		offset : {
-			top : 100
-		}
-	});
-	
-</script>
+	<script src="/assets/js/events/view.js"></script>
 @stop

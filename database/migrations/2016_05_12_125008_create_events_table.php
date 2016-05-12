@@ -18,13 +18,13 @@ class CreateEventsTable extends Migration
             $table->string('event_name');
             $table->date('event_date');
 			# School, District, State, National, World
-            $table->string('level');
+            $table->string('level')->nullable();;
 			# Number of rounds
 			$table->string('rounds');
 			# Ranking in the event
             $table->string('standing');
 			# Won the event
-			$table->boolean('winner');
+			$table->boolean('winner')->nullable();
             $table->string('grade');
             $table->string('school_year');
 			$table->string('school_name');

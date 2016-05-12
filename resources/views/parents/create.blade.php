@@ -20,16 +20,16 @@ Clap Events - Editing My Profile
 							<img alt="User Picture" src={{ URL::to('/') }}{{ $parent->picture_location }} class="img-circle img-responsive sized-small ">																		
 						</div>
 						<br>
-						<a class="col-lg-12 align-with-form" href="/parents/addProfilePicture">
-							<button type="button" class="btn btn-primary btn-sm ">Edit my profile picture</button></a>	
+						<div class="col-lg-12">
+						<a class="col-lg-offset-4 col-lg-4 col-lg-offset-4 btn btn-primary" href="/parents/addProfilePicture">
+							Edit my profile picture</a>	</div>
 					</div>
-					<form id="form1" class="form-horizontal" enctype="multipart/form-data" role="form" method='POST' action='/parents/edit'>
+					<form id="form1" class="form-horizontal" enctype="multipart/form-data" method='POST' action='/parents/edit'>
 						{{ csrf_field() }}
 						<input type="hidden" id="user_id" name="user_id" value={{ $parent->id }}>
 						<div class="form-group">
 							<label class="col-lg-3 control-label">* First name:</label>
 							<div class="col-lg-8">
-								<!--<input class="form-control" type="text" name='firstname'  value='{{ old('firstname') }}'>-->
 								<input class="form-control" type="text" name='firstname'  value={{ $parent->firstname }}>
 								<div class='error'>
 									{{ $errors->first('firstname') }}
@@ -39,23 +39,18 @@ Clap Events - Editing My Profile
 						<div class="form-group">
 							<label class="col-lg-3 control-label">Last name:</label>
 							<div class="col-lg-8">
-								<!--<input class="form-control" type="text" name='lastname' value='{{ old('lastname') }}'>-->
 								<input class="form-control" type="text" name='lastname' value={{ $parent->lastname }}>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-lg-3 control-label">Middle:</label>
 							<div class="col-lg-8">
-								<input class="form-control" type="text" name='middle'  value={{ $parent->middle }}>
-								<div class='error'>
-									{{ $errors->first('middle') }}
-								</div>
+								<input class="form-control" type="text" name='middlename'  value={{ $parent->middle }}>								
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-md-3 control-label">Username:</label>
 							<div class="col-md-8">
-								<!--<input class="form-control" type="text" name='username' value='{{ old('username') }}'>-->
 								<input class="form-control" type="text" name='username' value={{ $parent->name }}>
 							</div>
 						</div>
@@ -77,7 +72,6 @@ Clap Events - Editing My Profile
 						<div class="form-group">
 							<label class="col-md-3 control-label">Password:</label>
 							<div class="col-md-8">
-								<!--<input class="form-control" type="password"  name='password'  value='{{ old('password') }}'>-->
 								<input class="form-control" type="password"  name='password'  value=''>
 								<div class='error'>
 									{{ $errors->first('password') }}
@@ -87,7 +81,6 @@ Clap Events - Editing My Profile
 						<div class="form-group">
 							<label class="col-md-3 control-label">Confirm password:</label>
 							<div class="col-md-8">
-								<!--<input class="form-control" type="password"  name='confirm_password'  value='{{ old('confirm_password') }}'>-->
 								<input class="form-control" type="password"  name='confirm_password'  value=''>
 								<div class='error'>
 									{{ $errors->first('confirm_password') }}
@@ -97,6 +90,7 @@ Clap Events - Editing My Profile
 						<div class="form-group">
 							<div class="col-md-11 center-text">
 								<input type="submit" class="btn btn-primary" value="Save Changes">
+								<a href='{{ url('/') }}' class="btn btn-default" id="btn-next">Cancel</a>
 						</div>
 						@if(count($errors) > 0)
 						<div class='all_error'>
@@ -113,25 +107,5 @@ Clap Events - Editing My Profile
 
 @stop
 @section('body')
-<script>
-	$(window).load(function() {
-		$("div.input-group").addClass("input-group-sm");
-	});
-	
-	$(document).ready(function() {
-		$("ul.nav > li >").find(".active").removeClass("active");
-		$('#editProfile').addClass("active");		
-		$("footer div.navbar.nav-footer").removeClass("navbar-fixed-bottom");	
-	});
-
-	$('#sidebar').affix({
-		offset : {
-			top : 150
-		}
-	});
-	
-	$('#reset1').click(function() {
-		$('#form1')[0].reset();
-	}); 
-</script>
+	<script src="/assets/js/parents/create.js"></script>
 @stop

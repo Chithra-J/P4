@@ -12,7 +12,6 @@ class ChildrenTableSeeder extends Seeder
     public function run()
     {
     	DB::table('children')->delete();
-		//$author_id = \App\Author::where('last_name','=','Fitzgerald')->pluck('id')->first();
     	$parent_id = (DB::table('users')->where('email', '=', 'jill@harvard.edu')->select('id')->first());
         DB::table('children')->insert([
         'created_at' => Carbon\Carbon::now()->toDateTimeString(),
@@ -20,6 +19,28 @@ class ChildrenTableSeeder extends Seeder
         'user_id' => $parent_id->id,        
         'firstname' => 'Jim',
         'lastname' => 'Jack',
+        'gender' => 'male',
+        'date_of_birth' => '2006-10-01',
+        'picture_location' => 'uploads/'.$parent_id->id.'/',
+    	]);
+    	$parent_id = (DB::table('users')->where('email', '=', 'jill@harvard.edu')->select('id')->first());
+        DB::table('children')->insert([
+        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+        'user_id' => $parent_id->id,        
+        'firstname' => 'Jing',
+        'lastname' => 'Jack',
+        'gender' => 'male',
+        'date_of_birth' => '2010-10-01',
+        'picture_location' => 'uploads/'.$parent_id->id.'/',
+    	]);
+    	$parent_id = (DB::table('users')->where('email', '=', 'jamal@harvard.edu')->select('id')->first());
+        DB::table('children')->insert([
+        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+        'user_id' => $parent_id->id,        
+        'firstname' => 'Jimmy',
+        'lastname' => 'Jamal',
         'gender' => 'male',
         'date_of_birth' => '2006-10-01',
         'picture_location' => 'uploads/'.$parent_id->id.'/',

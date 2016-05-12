@@ -21,13 +21,49 @@ class EventsTableSeeder extends Seeder
         'child_id' => $child_id->id,
         'event_name' => 'Math League',
         'level' => 'State',
-        'rounds' => 'Qualifier',
+        'rounds' => '1',
         'standing' => 'first place',
         'event_date' => '2006-10-01',
         'winner' => true,
         'grade' => '5',
         'school_year' => '2005',
         'school_name' => 'HMS',
+        'picture_location' => 'uploads/'.$parent_id->id.'/',
+    	]);
+		$parent_id = (DB::table('users')->where('email', '=', 'jill@harvard.edu')->select('id')->first());
+		$child_id = (DB::table('children')->where('user_id', '=', $parent_id->id)->select('id')->first());
+        DB::table('events')->insert([
+        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+        'user_id' => $parent_id->id,        
+        'child_id' => $child_id->id,
+        'event_name' => 'VEX Robotics',
+        'standing' => 'first',
+        'level' => 'State',
+        'rounds' => '3',
+        'event_date' => '2016-10-01',
+        'winner' => false,
+        'grade' => '4',
+        'school_year' => '2005',
+        'school_name' => 'PMA',
+        'picture_location' => 'uploads/'.$parent_id->id.'/',
+    	]);
+		$parent_id = (DB::table('users')->where('email', '=', 'jamal@harvard.edu')->select('id')->first());
+		$child_id = (DB::table('children')->where('user_id', '=', $parent_id->id)->select('id')->first());
+        DB::table('events')->insert([
+        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+        'user_id' => $parent_id->id,        
+        'child_id' => $child_id->id,
+        'event_name' => 'VEX',
+        'standing' => 'first',
+        'level' => 'State',
+        'rounds' => '4',
+        'event_date' => '2016-10-01',
+        'winner' => true,
+        'grade' => '4',
+        'school_year' => '2005',
+        'school_name' => 'PMA',
         'picture_location' => 'uploads/'.$parent_id->id.'/',
     	]);
     	$parent_id = (DB::table('users')->where('email', '=', 'chit@w.com')->select('id')->first());
@@ -38,9 +74,9 @@ class EventsTableSeeder extends Seeder
         'user_id' => $parent_id->id,        
         'child_id' => $child_id->id,
         'event_name' => 'VEX',
-        'standing' => 'first place',
+        'standing' => 'first',
         'level' => 'State',
-        'rounds' => 'Qualifier',
+        'rounds' => '5',
         'event_date' => '2016-10-01',
         'winner' => true,
         'grade' => '4',

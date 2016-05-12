@@ -1,33 +1,19 @@
-/*
-header.row {
-	border: 1px groove #5F5C3B;
-	background-color: #DAFADC;
-	border-radius: 5px;
-}*/
 .CE_logo {
 	border: 2px #E7D05D solid;
     border-radius: 10px;
     margin-bottom: 10px;
 }
 body.main {
-	background-color: #00C098;
-	/*background: url('../images/n3_bg.png');
-	
-	 background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><text x="5%" y="5%" font-size="30" fill="black">Clap!</text></svg>') repeat;
+	background-color: rgba(0, 192, 152, 0.15);
+	}
 
-	 -webkit-background-size: cover;
-	 -moz-background-size: cover;
-	 -o-background-size: cover;
-	 background-size: cover;
-	 filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/p4.png', sizingMethod='scale');
-	 -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/p4.png', sizingMethod='scale')";
-
-	 width: 100%;
-	 height: 100%;
-	 background-repeat: no-repeat;
-	 background-size:contain ;*/
-
-}
+hr.main {
+    margin-top: 15px;
+    margin-left: -15px;
+    margin-right: -15px;
+    border-radius: 5px;
+    border-top: 9px solid rgba(22, 146, 112, 0.69);
+   }
 div.login {
 	text-align: center;
 	font-family: "Curlz MT";
@@ -36,11 +22,6 @@ div.login {
 .form-control {
 	font-size: medium !important;
 }
-/*
- .container {
- font-family: "Curlz MT" !important;
- }*/
-
 .home-page {
 	margin: 100px 0px 0px 60px !important;
 	font-size: x-large !important;
@@ -60,7 +41,7 @@ div.login {
 .login-right, .login-left {
 	float: right;
 	font-size: large;
-	background-color: #DAFADC;
+	background-color: rgba(82, 176, 151, 0.5);
 	font-family: "Curlz MT";
 	color: #5F5C3B;
 	font-weight: bolder;
@@ -71,21 +52,23 @@ div.login {
 .login-left {
 	float: left;
 }
+.login-right {
+	margin-right: 10px;
+}
 .login-right > span > strong > a, .login-right > a,
-.login-left > span > strong > a, .login-left > a {
-	color: #5F5C3B;
+.login-left > span > strong > a, .login-left > a , .git-title, .accordion-toggle{
+	color: #5F5C3B !important;
 	text-decoration: none !important;	
+	vertical-align: middle;
 }
 .main-title, ul.nav > li > a, div > strong > a {
 	color: #5F5C3B;
 }
-.main-title {
-	/*background: url('../images/new_bg1.png');
-	border: 1px #E7D05D solid;*/
+.main-title, .git-title {
     border-radius: 4px;
 }
 ul.nav > li > a {
-	background-color: #DAFADC;
+	background-color: rgba(82, 176, 151, 0.5);
 }
 .nav-justified > li > a {
 	font-family: "Curlz MT";
@@ -98,31 +81,28 @@ div.login > strong > a.clap > img.logo {
 	vertical-align: middle;
 	max-height: 30px;
 	font-size: medium;
-	/*
-	border-radius: 3px;
-		border: 5px groove #5F5C3B;*/
 }
 
 div.login > strong > a.clap {
 	text-decoration: none;
 	font-size: 70px;
-	background-color: #DAFADC;
-	font-weight: bolder;
-    border: 4px #E7D05D solid;
 	/*
-	border-radius: 0 0 12px 12px;
-		border: 1px #E7D05D solid;*/
+	background-color: rgba(82, 176, 151, 0.5);
+		border: 4px #E7D05D solid;*/
 	
+	font-weight: bolder;
 }
 /* button hover */
-/*.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary*/
+
 .btn-primary {
     color: #ffffff;
     background-color: #2c3e50;
     border-color: #2c3e50;
+    text-decoration: none !important;
 }
 .btn-primary:hover {
 	background-color: #8AB2DA !important;
+	text-decoration: none !important;
 }
 /* profile picture */
 .prof-pic {
@@ -150,14 +130,14 @@ div.login > strong > a.clap {
 }
 
 ul.nav > li > a {
-	background-color: #DAFADC;
+	background-color: rgba(82, 176, 151, 0.5);
 }
 
 ul.nav.nav-pills.nav-stacked.affix-top > li > a {
-	background-color: #DAFADC;
+	background-color: rgba(82, 176, 151, 0.5);
 }
 ul.nav > li > a:hover {
-	background-color: #86D0EC !important;
+	background-color: #3DE08B !important;
 	border: 1px #2c3e50 solid;
 }
 ul.nav > li > a.active {
@@ -171,7 +151,7 @@ ul.nav.nav-pills.nav-stacked.affix-top > li > a.active {
 	color: #EABC68;
 	border-top: 1px solid #EABC68;
 }
-.hr-main-style {
+.hr-main-style, hr.login {
 	color: #5F5C3B;
 	border-top: 1px groove #5F5C3B;
 	margin-bottom: 0px;
@@ -191,19 +171,19 @@ ul.nav.nav-pills.nav-stacked.affix-top > li > a.active {
 	border-top: 1px solid #5F5C3B;
 }
 
-.panel-info > .panel-heading {
-	color: #5F5C3B !important;
-	background-color: #AFCBB7 !important;
-	border-color: #5F5C3B !important;
+.panel-heading {
+	color: #0E0E0E !important;
+	background-color: #8A9E90 !important;
 	font-weight: bolder !important;
+	border-bottom: 2px solid #52B097 !important;
 }
 .panel-body {
 	color: #5F5C3B !important;
-	background: #DAFADC !important;
+    background: #BCEADE !important;
 }
 .panel {
 	border-color: #5F5C3B !important;
-	background-color: #AFCBB7 !important;
+    background-color: #CBDACF !important;
 }
 .table-user-information > tbody > tr:first-child {
 	border-top: 0;
@@ -232,10 +212,7 @@ h3.center {
 	margin-top: 10px;
 	text-align: center;
 }
-/*
- .kv-upload-progress .progress {
- height: 20px !important;
- }*/
+
 .input-group {
 	position: relative;
 	display: table;
@@ -245,17 +222,6 @@ h3.center {
 	margin-top: 0px;
 	display: block !important;
 }
-/*
- .file-caption-name {
- display: none !important;
- }
-
- .hide {
- display: none !important;
- }
- .hide {
- display: block !important;
- }*/
 /* Child screen */
 .calendar-control {
 	margin-top: 205x !important;
@@ -286,55 +252,6 @@ table.child-table > tbody > tr > td {
 	background: hsl(170, 70%, 50%);
 }
 
-/*
-table.child-table > thead > tr > td:nth-child(1) {
-	background: hsl(150, 50%, 50%);
-}
-table.child-table > thead > tr > td:nth-child(2) {
-	background-color: hsl(150, 50%, 50%);
-}
-table.child-table > thead > tr > td:nth-child(3) {
-	background: hsl(160, 60%, 50%);
-}
-table.child-table > thead > tr > td:nth-child(4) {
-	background: hsl(170, 70%, 50%);
-}
-table.child-table > thead > tr > td:nth-child(5) {
-	background: hsl(180, 80%, 50%);
-}
-table.child-table > thead > tr > td:nth-child(6) {
-	background: hsl(190, 90%, 50%);
-}
-table.child-table > thead > tr > td:nth-child(7) {
-	background: hsl(200, 99%, 50%);
-}
-table.child-table > thead > tr > td:nth-child(8) {
-	background: hsl(150, 50%, 50%);
-}
-
-
-table.child-table > tbody > tr > td:nth-child(1) {
-	background: hsl(150, 50%, 50%);
-}
-table.child-table > tbody > tr > td:nth-child(2) {
-	background: hsl(160, 60%, 50%);
-}
-table.child-table > tbody > tr > td:nth-child(3) {
-	background: hsl(170, 70%, 50%);
-}
-table.child-table > tbody > tr > td:nth-child(4) {
-	background: hsl(180, 80%, 50%);
-}
-table.child-table > tbody > tr > td:nth-child(5) {
-	background: hsl(190, 90%, 50%);
-}
-table.child-table > tbody > tr > td:nth-child(6) {
-	background: hsl(200, 99%, 50%);
-}
-table.child-table > tbody > tr > td:nth-child(7) {
-	background: hsl(150, 50%, 50%);
-}
-*/
 
 /* Picture profile*/
 .progress {
@@ -353,10 +270,6 @@ table.child-table > tbody > tr > td:nth-child(7) {
 }
 
 .fixed-panel {
-	/*
-	 min-height: 500px;
-	 max-height: 500px;*/
-
 	min-width: 500px;
 	overflow-y: auto;
 }
@@ -376,7 +289,7 @@ table.child-table > tbody > tr > td:nth-child(7) {
 }
 
 footer > div.nav-footer {
-	background-color: #DAFADC;
+	background-color: rgba(82, 176, 151, 0.5);
 	border-color: #5F5C3B;
 	min-height: 35px;
 }
@@ -386,15 +299,57 @@ footer > div.nav-footer {
 }
 
 /*----------------------------------------------------
- Flash message
+ Accordion
  -----------------------------------------------------*/
-.flash_message {
-	width: 100%;
-	text-align: center;
-	padding: 5px;
-	position: fixed;
-	top: 0;
-	left: 0;
-	background-color: yellow;
-	font-weight: bold;
+.accordion-heading {
+	background-color: #45BDA6;
+	font-weight: 400;
+	height: 40px;
+	border: ridge;
+	
+	border-radius: 2px;
+	font-weight: bolder !important;
 }
+.accordion-heading:hover {
+	background-color: #779EAB;
+	color: #2C5773 !important;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+	font-weight: bolder !important;
+}
+.accordion-heading:before {
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+
+.accordion-heading > a {
+	color: #2C3E50 !important;
+	text-transform: capitalize;
+	font-family: sans-serif;
+	padding-left: 30px;
+}
+
+.accordion-inner > div > img {
+	margin-right: 50px;
+	float: left;
+}
+.accordion-heading > a > img {
+	float: right;
+	margin-right: 50px;
+}
+.accordion-heading > a:hover, .accordion-heading > a:focus {
+	color: #2C5773 !important;
+}
+
+.list-detail {
+	text-transform: capitalize;
+}
+
+#con .well {
+	height: 300px;
+	margin-bottom: -10px;
+	margin-top: -10px;

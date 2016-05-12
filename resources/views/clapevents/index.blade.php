@@ -24,7 +24,7 @@ Clap Events
 					</p>
 					<br>
 					<p>
-						All you have to do is sign up with your email and enjoy tracking your kids memorable achievements.
+						All you have to do is register as member with your email and enjoy tracking your kids memorable achievements.
 					</p>
 				</div>
 			</div>

@@ -4,6 +4,7 @@
 		<title> @yield('title','Dynamic Web Application Project P4') </title>
 		<meta charset='utf-8'>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta name="_token" content="{{ csrf_token() }}">
 		<link href="/assets/css/P4.css" type='text/css' rel='stylesheet'>
 		<link href="http://netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
@@ -16,14 +17,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 		<script src="/assets/js/fileinput.min.js"></script>
 		<link rel="icon" href="/assets/images/favicon.ico">
-
-		{{-- Yield any page specific CSS files or anything else you might want in the head --}}
-		@yield('head')
-		<!--
-		<script>
-					$("div.input-group").addClass("input-group-sm");
-				</script>-->
-		
+		@yield('head')		
 	</head>
 	<body class="main">
 		<div class="container-fluid">
@@ -32,7 +26,7 @@
 					@if(Auth::user())
 				<div class="login-left">
 					<div class="login-left">
-						&nbsp;&nbsp;Welcome {{ Auth::user()->name }} ! &nbsp;&nbsp; 
+						&nbsp;&nbsp;Welcome {{ ucfirst(Auth::user()->name) }} ! &nbsp;&nbsp; 
 					</div>
 				</div>
 				@endif
@@ -46,7 +40,7 @@
 					@yield('header')
 				</div>
 				@if(Auth::user())
-				<div class="login-right">
+				<div>
 					<div class="login-right">						
 						<a href="/logout">&nbsp;&nbsp;Logout&nbsp;&nbsp;</a>
 					</div>
@@ -54,25 +48,24 @@
 				@else
 				<div class="col-sm-2">
 					<div class="login-right">
-						<span><strong>Are you a member? <br>
+						<strong>Are you a member? <hr class="login">
 						<a href="/login">Login</a>&nbsp;or&nbsp;
-						<a href="/register">Register</a></strong> </span>
+						<a href="/register">Register</a></strong>
 						</div>
 				</div>
 				@endif
 			</header>
+			<hr class='main'>
 			<section>
 				@if(Auth::user())
 				<!-- left column -->
-				<br>
-				<br>
 				<div class="col-sm-2">
 					<ul id="sidebar" class="nav nav-pills nav-stacked">
 						<li>
 							<a id="home" href="/">Home</a>
 						</li>
 						<li>
-							<a id="editProfile" href="/parents/create">My Profile</a>
+							<a id="editProfile" href="/parents/create">Manage My Profile</a>
 						</li>
 						<li>
 							<a id="editChild" href="/children/create">Children Profile</a>
@@ -83,7 +76,6 @@
 					</ul>
 				</div>
 				@endif
-				{{-- Main page content will be yielded here --}}
 				@yield('content')
 			</section>
 			<footer>
@@ -91,10 +83,10 @@
 					<div class="container" >
 						<div class="row" >
 							<div class="col-sm-6">
-								<ul class="nav navbar-nav nav-custom-footer">
+								<p class="nav navbar-nav nav-custom-footer">
 									&copy; {{ date('Y') }} &nbsp;&nbsp;
-									<a target="_blank" href='https://github.com/Chithra-J/P4'> View on Github</a>
-								</ul>
+									<a class="git-title" target="_blank" href='https://github.com/Chithra-J/P4'> View on Github</a>
+								</p>
 							</div>
 							<div class="col-sm-5">
 								<p class="footer-label-right">

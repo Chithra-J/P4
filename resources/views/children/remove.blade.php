@@ -12,7 +12,6 @@ Clap Events Deleting Children Profile
 <section>
 	<div class="container">
 		<input type='hidden' name='_token' value='{{ csrf_token() }}'>
-
 		<!--</form>-->
 		<div class="col-sm-offset-1 col-sm-9">
 			<br>
@@ -23,15 +22,7 @@ Clap Events Deleting Children Profile
 				<div class="panel-body">
 
 					<div class="row">
-						<!--
-						<div class="col-md-3 col-lg-3 prof-pic">
-						@if ( (!empty($child -> picture_location)) and ($child -> picture_location != "") and ($child -> picture_location != NULL) and (!empty($child -> picture_location)))
-						<img alt="User Picture" src={{ URL::to('/') }}{{ $child->picture_location }} class="img-circle img-responsive">
-						@endif
-						</div>-->
-
 						<div class=" col-md-12 col-lg-12 ">
-							<!--table table-user-information-->
 							<table class="child-table table table-user-information">
 								<thead>
 									<tr>
@@ -55,23 +46,15 @@ Clap Events Deleting Children Profile
 						</div>
 						<div class="row">
 							<div class="center-text col-md-12 ">
-								<strong><p>
-									Are you sure you want to remove <em>{{$child->firstname}}</em>?
-								</p></strong>
 								<p>
-									<strong><a href='/children/removeChild/{{$child->id}}'>
-									<button type="button" class="btn btn-primary btn-sm ">
-										&nbsp;&nbsp;&nbsp;Yes, remove&nbsp;
-									</button></a></strong>
+									<strong>Are you sure you want to remove <em>{{$child->firstname}}</em>?</strong>
 								</p>
 								<p>
-									<?php
-									$url = htmlspecialchars($_SERVER['HTTP_REFERER']);
-									?>
-									<a href={{ $url }}>
-									<button type="button" class="btn btn-primary btn-sm ">
-										&nbsp;No, I want to keep {{$child->firstname}}'s profile!&nbsp;
-									</button></a>
+									<strong><a href='/children/removeChild/{{$child->id}}' class="btn btn-primary btn-sm ">
+										&nbsp;&nbsp;&nbsp;Yes, remove&nbsp;</a></strong>
+								</p>
+								<p>
+									<a href='{{ url('/children/create') }}' class="btn btn-primary btn-sm" id="btn-next">No, I do want to remove <em>{{$child->firstname}}!</a>
 								</p>
 							</div>
 						</div>
@@ -84,17 +67,5 @@ Clap Events Deleting Children Profile
 @stop
 
 @section('body')
-<script>
-	$(document).ready(function() {
-		$("ul.nav > li >").find(".active").removeClass("active");
-		$('#editChild').addClass("active");	
-		$("footer div.navbar.nav-footer").removeClass("navbar-fixed-bottom");
-	});
-	$('#sidebar').affix({
-		offset : {
-			top : 100
-		}
-	});
-	
-</script>
+	<script src="/assets/js/children/remove.js"></script>
 @stop

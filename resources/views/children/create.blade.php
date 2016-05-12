@@ -10,7 +10,7 @@ Clap Events Adding Child
 <section>
 	<div class="container">
 		<div class="row">
-			<form id="form1" class="form-horizontal" role="form" method='POST' action='/children/createChild'>
+			<form id="form1" class="form-horizontal" method='POST' action='/children/createChild'>
 				<!-- edit form column -->
 				<div class="col-md-offset-1 col-md-9 personal-info">
 					<div class="panel">
@@ -19,19 +19,7 @@ Clap Events Adding Child
 						</div>
 						<div class="panel-body">
 							<input type='hidden' name='_token' value='{{ csrf_token() }}'>
-							<input type="hidden" id="user_id" name="user_id" value={{ $user_id }}>
-							<!--
-							<div class="form-group">
-								@if ( (!empty($parent -> picture_location)) and ($parent -> picture_location != "") and ($parent -> picture_location != NULL) and (!empty($parent -> picture_location)))
-									<a id="editprofilepicture" class="col-lg-4" href="/parents/addProfilePicture">Edit Profile Picture</a>
-									<div class="col-lg-7">									
-										<img alt="User Picture" src={{ URL::to('/') }}{{ $parent->picture_location }} class="img-circle img-responsive">	
-																		
-									</div>
-								@else 
-									<a id="editprofilepicture" class="col-lg-offset-3 col-lg-5" href="/parents/addProfilePicture">Add Profile Picture</a>
-								@endif
-							</div>-->							
+							<input type="hidden" id="user_id" name="user_id" value={{ $user_id }}>						
 							<div class="form-group">
 								<label class="col-lg-4 control-label">* First name:</label>
 								<div class="col-lg-7">
@@ -50,13 +38,12 @@ Clap Events Adding Child
 							<div class="form-group">
 								<label class="col-lg-4 control-label">Middle:</label>
 								<div class="col-lg-7">
-									<input class="form-control" type="text" name='middle' value="{{ old('middle') }}">
+									<input class="form-control" type="text" name='middlename' value="{{ old('middle') }}">
 								</div>
 							</div>
 							
 							<div class="form-group">
 								<label class="col-md-4 control-label ">* Date of birth (YYYY-MM-DD):</label>
-								<!--<label class="col-md-3 control-label ">(MM/DD/YYYY)</label>-->
 								<div class='col-lg-7'>
 									<div class='new-calendar input-group date col-lg-5' id='datetimepicker'>										
 					                    <input type='text' class="new-calendar form-control" name='date_of_birth' value="">					                    
@@ -67,10 +54,7 @@ Clap Events Adding Child
 									</div>
 					                </div>
 								</div>
-								
-								<!--<div class='col-lg-4'></div>-->		
-														
-							</div>
+								</div>
 							<div class="form-group">
 									<label class="col-md-4 control-label">Gender:</label>
 									<div class="col-md-7">
@@ -98,34 +82,10 @@ Clap Events Adding Child
 				</div>
 			</form>
 		</div>
+		</div>
 </section>
-</div>
+
 @stop
 @section('body')
-<script>
-	$(window).load(function() {
-		$("div.input-group").addClass("input-group-sm");
-	});
-
-	$(document).ready(function() {
-		$("ul.nav > li >").find(".active").removeClass("active");
-		$('#editChild').addClass("active");		
-		$('#datetimepicker').datetimepicker({
-			viewMode: 'years',
-			'allowInputToggle' : true,
-                format: 'YYYY-MM-DD'
-	    	});
-		$("footer div.navbar.nav-footer").removeClass("navbar-fixed-bottom");
-		});
-
-	$('#sidebar').affix({
-		offset : {
-			top : 150
-		}
-	});		 
-
-	$('#reset1').click(function() {
-		$('#form1')[0].reset();
-	}); 
-</script>
+	<script src="/assets/js/children/create.js"></script>
 @stop

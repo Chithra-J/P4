@@ -22,22 +22,10 @@ Clap Events Show Children Profile
 
 					<div class="col-md-12">
 						<div class="form-group">
-
-							<!--<input type="submit" class="btn btn-primary"  value="Add &nbsp; a &nbsp; child">-->
-							<a href="/children/createChild">
-							<button type="button" class="btn btn-primary btn-sm ">
-								&nbsp;+&nbsp;&nbsp;Add one more child !&nbsp;
-							</button></a>
-
+							<a href="/children/createChild" class="btn btn-primary btn-sm ">
+								&nbsp;+&nbsp;&nbsp;Add one more child !&nbsp;</a>
 						</div>
 					</div>
-
-					<!--
-					<div class="col-md-3 col-lg-3 prof-pic">
-					@if ( (!empty($child -> picture_location)) and ($child -> picture_location != "") and ($child -> picture_location != NULL) and (!empty($child -> picture_location)))
-					<img alt="User Picture" src={{ URL::to('/') }}{{ $child->picture_location }} class="img-circle img-responsive">
-					@endif
-					</div>-->
 
 					<div class="col-md-12">
 						<table class="child-table table table-user-information">
@@ -59,14 +47,10 @@ Clap Events Show Children Profile
 									<td>{{ $child->middle }}</td>
 									<td>{{ $child->date_of_birth }}</td>
 									<td>{{ $child->gender }}</td>
-									<td class="center-text"><a href="/children/editChild/{{$child->id}}">
-									<button type="button" class="btn btn-primary btn-sm ">
-										Edit
-									</button></a></td>
-									<td class="center-text"><a href="/children/confirm-removeChild/{{$child->id}}">
-									<button type="button" class="btn btn-primary btn-sm ">
-										Remove
-									</button></a></td>
+									<td class="center-text"><a href="/children/editChild/{{$child->id}}" class="btn btn-primary btn-sm ">
+										Edit</a></td>
+									<td class="center-text"><a href="/children/confirm-removeChild/{{$child->id}}" class="btn btn-primary btn-sm ">
+										Remove</a></td>
 								</tr>
 								@endforeach
 							</tbody>
@@ -81,17 +65,5 @@ Clap Events Show Children Profile
 @stop
 
 @section('body')
-<script>
-	$(document).ready(function() {
-		$("ul.nav > li >").find(".active").removeClass("active");
-		$('#editChild').addClass("active");	
-		$("footer div.navbar.nav-footer").removeClass("navbar-fixed-bottom");
-	});
-	$('#sidebar').affix({
-		offset : {
-			top : 100
-		}
-	});
-	
-</script>
+	<script src="/assets/js/children/show.js"></script>
 @stop

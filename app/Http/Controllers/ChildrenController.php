@@ -27,8 +27,11 @@ class ChildrenController extends Controller {
 		$child = new \P4\Child();
 		$child -> firstname = $data['firstname'];
 		$child -> lastname = $data['lastname'];
-		$child -> middle = $data['middle'];
+		$child -> middle = $data['middlename'];
 		$child -> date_of_birth = date('Y-m-d', strtotime($data['date_of_birth']));
+		if (!array_key_exists('gender', $data)) {
+			$data['gender'] = NULL;
+		}
 		$child -> gender = $data['gender'];
 		$child -> user_id = $data['user_id'];
 		$child -> save();
@@ -48,8 +51,11 @@ class ChildrenController extends Controller {
 		$child = \P4\Child::find($request->id);
 		$child -> firstname = $data['firstname'];
 		$child -> lastname = $data['lastname'];
-		$child -> middle = $data['middle'];
+		$child -> middle = $data['middlename'];
 		$child -> date_of_birth = date('Y-m-d', strtotime($data['date_of_birth']));
+		if (!array_key_exists('gender', $data)) {
+			$data['gender'] = NULL;
+		}
 		$child -> gender = $data['gender'];
 		$child -> save();
 		return redirect('/children/create');

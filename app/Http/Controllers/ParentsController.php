@@ -23,7 +23,7 @@ class ParentsController extends Controller {
 		$parent = \P4\User::find($request->user_id);
 		$parent -> firstname = $request -> firstname;
 		$parent -> lastname = $request -> lastname;
-		$parent -> middle = $request -> middle;
+		$parent -> middle = $request -> middlename;
 		$parent -> name = $request -> username;
 		$parent -> password = \Hash::make($request -> password);
 		$parent -> gender = $request -> gender;
@@ -85,7 +85,6 @@ class ParentsController extends Controller {
 	public function postEditProfilePicture(Request $request) {
 		$parent = \P4\User::where('id', '=', $request -> user_id) -> get() -> first();
 		if(is_null($parent)) {
-            \Session::flash('message','Event for this child not found');
             return redirect('/parents/create');
         }
 		if ($request -> remove_profile_picture == "on") {
